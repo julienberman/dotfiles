@@ -1,0 +1,10 @@
+[user]
+    email = julien.d.berman@gmail.com
+    name = Julien Berman
+
+[core]
+    pager = delta
+
+[init]
+    defaultBranch = main
+
