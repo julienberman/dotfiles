@@ -24,6 +24,3 @@ Run the following command to create symlinks of the dotfiles for each tool:
 ```
 stow -t "$HOME" [package]
 ```
-
-Test
-
