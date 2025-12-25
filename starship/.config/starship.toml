@@ -1,0 +1,116 @@
+# Get editor completions based on the config schema
+"$schema" = "https://starship.rs/config-schema.json"
+
+# Global settings
+palette = "catppuccin_mocha"
+add_newline = true
+command_timeout = 2000
+
+format = """$username$hostname$git_branch$git_status$python$directory
+$character
+"""
+
+# ─────────────────────────────
+# Prompt character
+# ─────────────────────────────
+[character]
+success_symbol = "[⎯](green)"
+error_symbol   = "[⎯](red)"
+
+# ─────────────────────────────
+# Username
+# ─────────────────────────────
+[username]
+style_user = "lavender"
+style_root = "maroon"
+format = "[//](overlay1 bold) [$user]($style) "
+disabled = false
+show_always = true
+
+# ─────────────────────────────
+# Hostname
+# ─────────────────────────────
+[hostname]
+ssh_only = false
+format = "[//](overlay1 bold) [$hostname]($style) "
+style = "lavender"
+disabled = true
+
+# ─────────────────────────────
+# Directory
+# ─────────────────────────────
+[directory]
+truncation_length = 0
+truncation_symbol = "…/"
+home_symbol = "~"
+read_only = "  "
+format = "[//](overlay1 bold) [$path]($style)[$read_only](red) "
+disabled = false
+style = "flamingo"
+
+# ─────────────────────────────
+# Git branch
+# ─────────────────────────────
+[git_branch]
+symbol = " "
+format = "[//](overlay1 bold) [$symbol$branch]($style) "
+style = "peach"
+
+# ─────────────────────────────
+# Git status
+# ─────────────────────────────
+[git_status]
+disabled = false
+format = "([$all_status$ahead_behind]($style)) "
+style = "peach"
+
+conflicted = "🏳 "
+untracked  = " "
+modified   = " "
+staged     = " "
+renamed    = "襁 "
+deleted    = " "
+stashed    = " "
+ahead      = "⇡${count} "
+behind     = "⇣${count} "
+diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
+
+# ─────────────────────────────
+# Python
+# ─────────────────────────────
+[python]
+symbol = " "
+format = "[//](overlay1 bold) [$symbol$version]($style) "
+style = "lavender"
+python_binary = ["python3", "python"]
+
+# ─────────────────────────────
+# Palette definitions
+# ─────────────────────────────
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo  = "#f2cdcd"
+pink      = "#f5c2e7"
+mauve     = "#cba6f7"
+red       = "#f38ba8"
+maroon    = "#eba0ac"
+peach     = "#fab387"
+yellow    = "#f9e2af"
+green     = "#a6e3a1"
+teal      = "#94e2d5"
+sky       = "#89dceb"
+sapphire  = "#74c7ec"
+blue      = "#89b4fa"
+lavender  = "#b4befe"
+text      = "#cdd6f4"
+subtext1  = "#bac2de"
+subtext0  = "#a6adc8"
+overlay2  = "#9399b2"
+overlay1  = "#7f849c"
+overlay0  = "#6c7086"
+surface2  = "#585b70"
+surface1  = "#45475a"
+surface0  = "#313244"
+base      = "#1e1e2e"
+mantle   = "#181825"
+crust    = "#11111b"
