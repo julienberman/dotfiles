@@ -1,8 +1,9 @@
 
 # style
-font-family = Berkeley Mono
+theme = catppuccin-mocha.conf
+font-family = CaskaydiaCove Nerd Font
 font-size = 18
-theme = Gruvbox Dark Hard
+background-opacity = 0.9
 cursor-style = block
 adjust-cell-height = 35%
 title = " "
@@ -11,28 +12,4 @@ window-padding-y = 0
 window-save-state = always
 macos-titlebar-style = transparent
 confirm-close-surface = false
-
-# keybindings
-keybind = cmd+s>r=reload_config
-keybind = cmd+s>x=close_surface
-
-# split
-keybind = cmd+s>d=new_split:right
-keybind = cmd+s>a=new_split:down
-
-keybind = cmd+s>j=goto_split:bottom
-keybind = cmd+s>k=goto_split:top
-keybind = cmd+s>h=goto_split:left
-keybind = cmd+s>l=goto_split:right
-
-keybind = cmd+s>z=toggle_split_zoom
-
-keybind = cmd+s>e=equalize_splits
-
-keybind = cmd+s>f=close_surface
-
-# config
-keybind = cmd+s>c=open_config
-
-
 
