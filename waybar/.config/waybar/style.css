@@ -35,7 +35,7 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 4px;
+    padding: 0 20px;
 }
 
 #workspaces button.focused {
