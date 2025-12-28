@@ -1,0 +1,10 @@
+# Synctex
+set synctex true
+
+# Basic settings
+set highlight-transparency 0.1
+set zoom-center "true"
+set selection-clipboard clipboard
+set window-width 1280
+set window-height 1080
+set adjust-open "best-fit"

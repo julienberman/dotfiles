@@ -177,6 +177,8 @@ require("lazy").setup({
 		init = function()
 			-- VimTeX configuration goes here, e.g.
 			vim.g.vimtex_view_method = "zathura"
+			vim.g.vimtex_quickfix_mode = 0
+			vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
 		end,
 	},
 	-- Alternatively, use `config = function() ... end` for full control over the configuration.
