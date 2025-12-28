@@ -6,7 +6,7 @@ palette = "catppuccin_mocha"
 add_newline = true
 command_timeout = 2000
 
-format = """$username$hostname$git_branch$git_status$python$directory
+format = """$conda$username$hostname$git_branch$git_status$python$directory
 $character
 """
 
@@ -17,13 +17,18 @@ $character
 success_symbol = "[⎯](green)"
 error_symbol   = "[⎯](red)"
 
+[conda]
+style = "lavender"
+symbol = "🅒"
+format = "[\\($environment\\)]($style)"
+
 # ─────────────────────────────
 # Username
 # ─────────────────────────────
 [username]
 style_user = "lavender"
 style_root = "maroon"
-format = "[//](overlay1 bold) [$user]($style) "
+format = " [$user]($style) "
 disabled = false
 show_always = true
 
