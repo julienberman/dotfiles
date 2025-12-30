@@ -1,2 +1,0 @@
--- Add plugins here
-return {}
