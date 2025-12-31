@@ -2,9 +2,9 @@
 [up]>[left]
 [down]>[down]
 [obrk]>[up]
-[cbrk]>[right]
+[cbrk]>[rght]
 [left]>[obrk]
-[right]>[cbrk]
+[rght]>[cbrk]
 
 [del]>[lctr]
 [lctr]>[lalt]
