@@ -1,6 +1,6 @@
 ### Kinesis Advantage 360
 
-Steps for configuring the keyboard layouts for the Kinesis Advantage 360. The keyboard uses the SmartSet firmware (not ZMK or QMK). There are 9 layouts ("profiles") that can be edited. The default layout is layout0, which is locked.
+Steps for configuring the keyboard layouts for the Kinesis Advantage 360. The keyboard uses the SmartSet firmware (not ZMK or QMK). There are 9 layouts ("profiles") that can be edited.
 
 ### Configuring
 1) Plug in keyboard and activate the "v-drive" with
@@ -23,6 +23,12 @@ sudo umount /mnt/adv360
 5) Deactivate the "v-drive" with 
 ```SmartSet + HotKey3```
 
+### Switching Layouts
+For a temporary change, press:
+```SmartSet + <LAYOUT_NUM>```
+
+For a permanent layout change, press:
+```SmartSet + shift + <LAYOUT_NUM>```
 
 
 
