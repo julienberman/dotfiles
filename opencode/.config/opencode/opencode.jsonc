@@ -4,6 +4,11 @@
   // ------ THEME ------
   "theme": "catppuccin-macchiato",
   // ------ AGENTS -----
-  "default_agent": "plan"
+  "default_agent": "plan",
   // ------ KEYBINDS -----
+  // ------ INSTRUCTIONS ------
+  "instructions": [
+    "rules/general.md",
+    "rules/python.md"
+  ]
 }
