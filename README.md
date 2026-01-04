@@ -12,7 +12,12 @@ Configuration files for various tools:
 - `wofi`: search menu (think: spotlight search on OSX)
 
 Clone this repository. Then install `GNU stow` which can be installed as follows:
+Macos:
+```
+brew install stow
+```
 
+Archlinux:
 ```
 sudo pacman -S stow
 ```
