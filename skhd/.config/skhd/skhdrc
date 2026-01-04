@@ -11,16 +11,16 @@ alt - g: yabai -m display --focus east
 
 # --- Moving Windows Arround ---
 # swap windows within space
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - h : yabai -m window --swap west
-shift + alt - l : yabai -m window --swap east
+# Hyper - j : yabai -m window --swap south
+# Hyper - k : yabai -m window --swap north
+shift + ctrl + alt + cmd - h : yabai -m window --swap west
+shift + ctrl + alt + cmd - l : yabai -m window --swap east
 
 # maximize a window
-shift + alt - m : yabai -m window --toggle zoom-fullscreen
+ctrl + alt - m : yabai -m window --toggle zoom-fullscreen
 
 # toggle window float
-shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+ctrl + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # move window and split
 ctrl + alt - j : yabai -m window --warp south
