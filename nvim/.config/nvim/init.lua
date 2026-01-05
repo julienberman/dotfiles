@@ -150,6 +150,7 @@ require("lazy").setup({
 	require("plugins.treesitter"),
 	require("plugins.vimtex"),
 	require("plugins.which-key"),
+	require("plugins.yazi"),
 	-- require 'plugins.debug',
 	-- require 'plugins.indent_line',
 	-- require 'plugins.lint',
