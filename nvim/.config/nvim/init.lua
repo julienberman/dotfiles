@@ -140,6 +140,7 @@ require("lazy").setup({
 	require("plugins.conform"),
 	require("plugins.gitsigns"),
 	require("plugins.guess-indent"),
+	require("plugins.harpoon"),
 	require("plugins.lazydev"),
 	require("plugins.nvim-lspconfig"),
 	require("plugins.mini"),
