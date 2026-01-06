@@ -1,36 +1,33 @@
 -- Highlight, edit, and navigate code
 return {
 	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
 	build = ":TSUpdate",
-	main = "nvim-treesitter",
-	-- Configuration. See :help nvim-treesitter.
-	opts = {
-		ensure_installed = {
+	config = function()
+		local languages = {
 			"bash",
 			"c",
+			"rust",
 			"css",
 			"diff",
 			"html",
+			"latex",
 			"lua",
-			"luadoc",
 			"markdown",
-			"markdown_inline",
 			"python",
 			"query",
 			"r",
 			"regex",
 			"vim",
-			"vimdoc",
-		},
-		-- Ignore TeX documents
-		ignore_install = { "latex" },
-		-- Autoinstall languages that are not installed
-		auto_install = true,
-		highlight = {
-			enable = true,
-			disable = { "latex" },
-			additional_vim_regex_highlighting = { "ruby" },
-		},
-		indent = { enable = true, disable = { "ruby" } },
-	},
+		}
+
+		require("nvim-treesitter").install(languages)
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = languages,
+			callback = function()
+				vim.treesitter.start()
+			end,
+		})
+	end,
 }
