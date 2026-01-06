@@ -30,8 +30,10 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.undofile = true
 
--- Set default shiftwidth
+-- Set default shiftwidth and tab sizing, expand tabs to spaces
 vim.opt.shiftwidth = 4
+vim.opt.tabstop = 8
+-- vim.opt.expandtab = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
@@ -149,6 +151,7 @@ require("lazy").setup({
 	require("plugins.todo-comments"),
 	require("plugins.tokyonight"),
 	require("plugins.treesitter"),
+	require("plugins.vim-slime"),
 	require("plugins.vim-tmux-navigator"),
 	require("plugins.vimtex"),
 	require("plugins.which-key"),
