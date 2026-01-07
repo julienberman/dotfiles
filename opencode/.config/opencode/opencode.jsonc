@@ -9,6 +9,7 @@
   // ------ INSTRUCTIONS ------
   "instructions": [
     "rules/general.md",
-    "rules/python.md"
+    "rules/python.md",
+    "rules/R.md"
   ]
 }
