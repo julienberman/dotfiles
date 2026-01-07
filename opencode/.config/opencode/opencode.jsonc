@@ -6,6 +6,9 @@
   // ------ AGENTS -----
   "default_agent": "plan",
   // ------ KEYBINDS -----
+  "keybinds": {
+    "input_submit": "ctrl+enter"
+  },
   // ------ INSTRUCTIONS ------
   "instructions": [
     "rules/general.md",
