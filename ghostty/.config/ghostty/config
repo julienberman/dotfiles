@@ -16,3 +16,6 @@ shell-integration-features = ssh-terminfo, ssh-env
 
 # Notifications
 app-notifications = no-clipboard-copy 
+
+# Keybindings
+keybind = shift+enter=text:\x1b[13;2u
