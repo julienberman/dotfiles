@@ -8,14 +8,8 @@
   // ------ KEYBINDS -----
   "keybinds": {
       "leader": "ctrl+x",
-      "input_submit": "return,]",
+      "input_submit": "return",
       "input_newline": "shift+return,ctrl+j",
       "model_cycle_favorite": "<leader>f"
-  },
-  // ------ INSTRUCTIONS ------
-  "instructions": [
-    "rules/general.md",
-    "rules/python.md",
-    "rules/R.md"
-  ]
+  }
 }

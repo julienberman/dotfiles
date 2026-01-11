@@ -98,7 +98,7 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Keybinds for R
-vim.keymap.set("i", "<A-->", " <- ", { desc = "Shortcut for assignment arrow" })
+vim.keymap.set("i", "<A-->", "<- ", { desc = "Shortcut for assignment arrow" })
 vim.keymap.set("i", "<A-S-m>", " %>% ", { desc = "Shortcut for pipe arrow" })
 
 ------ SECTION: AUTOCOMMANDS ------

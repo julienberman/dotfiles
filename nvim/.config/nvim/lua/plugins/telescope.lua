@@ -80,7 +80,19 @@ return {
 
 		-- Shortcut for searching Neovim configuration files
 		vim.keymap.set("n", "<leader>sn", function()
-			builtin.find_files({ cwd = vim.fn.stdpath("config") })
+			builtin.find_files({
+				cwd = vim.fn.stdpath("config"),
+				hidden = true,
+			})
 		end, { desc = "[S]earch [N]eovim files" })
+
+		-- Shortcut for searching opencode configuration files
+		vim.keymap.set("n", "<leader>so", function()
+			builtin.find_files({
+				cwd = vim.fn.expand("~/.config/opencode"),
+				hidden = true,
+				follow = true,
+			})
+		end, { desc = "[S]earch [O]pencode files" })
 	end,
 }
