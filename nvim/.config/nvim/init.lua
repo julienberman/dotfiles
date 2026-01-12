@@ -33,7 +33,7 @@ vim.o.undofile = true
 -- Set default shiftwidth and tab sizing, expand tabs to spaces
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 8
--- vim.opt.expandtab = true
+vim.opt.expandtab = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
