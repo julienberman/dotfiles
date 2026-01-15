@@ -2,8 +2,13 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
+	branch = "main",
 	build = ":TSUpdate",
+	dependencies = {
+		require("plugins.textobjects"),
+	},
 	config = function()
+		local ts = require("nvim-treesitter")
 		local languages = {
 			"bash",
 			"c",
@@ -20,8 +25,10 @@ return {
 			"regex",
 			"vim",
 		}
-
-		require("nvim-treesitter").install(languages)
+		ts.install(languages)
+		ts.setup({
+			indent = { enable = false },
+		})
 
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = languages,

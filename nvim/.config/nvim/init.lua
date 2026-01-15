@@ -26,6 +26,8 @@ end)
 
 -- Enable break indent
 vim.o.breakindent = true
+vim.opt.autoindent = true
+vim.cmd("filetype plugin indent on")
 
 -- Save undo history
 vim.o.undofile = true
@@ -78,6 +80,10 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Set `jj` to be equivalent to `esc`
 vim.keymap.set("i", "jj", "<Esc>")
+
+-- Make page down and page up automatically center cursor
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Page up, center cursor" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Page down, center cursor" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -156,14 +162,11 @@ require("lazy").setup({
 	require("plugins.todo-comments"),
 	require("plugins.treesitter"),
 	require("plugins.vim-slime"),
+	require("plugins.vim-python-pep8-indent"),
 	require("plugins.vim-tmux-navigator"),
 	require("plugins.vimtex"),
 	require("plugins.which-key"),
 	require("plugins.yazi"),
-	-- require 'plugins.debug',
-	-- require 'plugins.indent_line',
-	-- require 'plugins.lint',
-	-- require 'plugins.gitsigns',
 }, {
 	-- Icons for Lazy ui
 	ui = {

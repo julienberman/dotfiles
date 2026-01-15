@@ -3,8 +3,15 @@
 return {
 	"echasnovski/mini.nvim",
 	config = function()
-		-- Better Around/Inside textobjects (e.g. va), yinq, ci')
-		require("mini.ai").setup({ n_lines = 500 })
+		require("mini.ai").setup({
+			n_lines = 500,
+			custom_textobjects = {
+				f = require("mini.ai").gen_spec.treesitter({
+					a = "@function.outer",
+					i = "@function.inner",
+				}),
+			},
+		})
 
 		-- Add/delete/replace surroundings (brackets, quotes, etc.)
 		require("mini.surround").setup()
