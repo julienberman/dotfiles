@@ -96,3 +96,25 @@ Example:
         mutate(log_n_articles = log(n_articles + 1))
 ```
 
+
+# Latex rules
+
+## Tables
+- All tables should use the `booktabs` package
+- Every table should be structured as follows (order matters):
+    - Caption
+    - Label (of the form `tab:[table_name]`)
+    - open tabular
+        - top rule
+        - contents of the table
+        - bottom rule
+    - close tabular
+    - open minipage with width equal to `linewidth` for table notes
+
+## Figures
+- Every figure should be structured as follows:
+    - Caption
+    - Label (of the form `fig:[figure_name]`)
+    - subfigures, if any
+    - open minipage with width equal to `linewidth` for table notes
+

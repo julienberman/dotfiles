@@ -156,6 +156,7 @@ require("lazy").setup({
 	require("plugins.lazydev"),
 	require("plugins.mini"),
 	-- require("plugins.neo-tree"),
+	require("plugins.neoscroll"),
 	require("plugins.nvim-lspconfig"),
 	require("plugins.telescope"),
 	require("plugins.theme"),
