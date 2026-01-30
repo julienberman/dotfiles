@@ -73,6 +73,9 @@ vim.o.confirm = true
 -- Set highlights on search
 vim.opt.hlsearch = true
 
+-- Hide command line below status line
+vim.opt.cmdheight = 0
+
 ------ SECTION: KEYMAPS -----
 
 -- Clear highlights on search when press esc
@@ -157,7 +160,9 @@ require("lazy").setup({
 	require("plugins.mini"),
 	-- require("plugins.neo-tree"),
 	require("plugins.neoscroll"),
+	require("plugins.noice"),
 	require("plugins.nvim-lspconfig"),
+	require("plugins.snacks"),
 	require("plugins.telescope"),
 	require("plugins.theme"),
 	require("plugins.todo-comments"),
