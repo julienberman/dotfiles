@@ -71,97 +71,92 @@ return {
 			return rel ~= "" and rel or vim.fn.fnamemodify(path, ":t")
 		end
 
-		local function mode_indicator()
+		local function mode_segment()
 			local mode = vim.fn.mode()
 			local is_insert = mode:sub(1, 1) == "i"
 			local mode_text = is_insert and "insert" or "normal"
 			local mode_hl = is_insert and "MiniStatuslineModeInsert" or "MiniStatuslineModeNormal"
+			local mode_display = " " .. mode_text .. " "
+			local segment = statusline.combine_groups({
+				{ hl = mode_hl, strings = { mode_display } },
+			})
+			return segment, mode_display
+		end
+
+		local function truncate_right(text, max_width)
+			if max_width <= 0 then
+				return ""
+			end
+			if vim.fn.strdisplaywidth(text) <= max_width then
+				return text
+			end
+			return vim.fn.strcharpart(text, 0, max_width)
+		end
+
+		local function statusline_content()
+			local width = vim.api.nvim_win_get_width(0)
+			local filepath = relative_path_for_display(vim.fn.expand("%:p"))
+			local show_location_gap = width >= 100
+			local show_location = width >= 90
+			local show_git = width >= 90
+			local use_short_path = not show_location and width < 80
+			if use_short_path then
+				filepath = vim.fn.pathshorten(filepath)
+			end
+			local mode_part, mode_display = mode_segment()
+			local modified = vim.bo.modified
+			local modified_text = modified and (" " .. icons.dot .. " ") or ""
+			local modified_part = modified
+					and statusline.combine_groups({
+						{ hl = "MiniStatuslineModified", strings = { modified_text } },
+					})
+				or ""
+			local git = show_git and statusline.section_git({ trunc_width = 40 }) or ""
+			local git_text = git ~= "" and (" " .. git .. " ") or ""
+			local git_part = git ~= ""
+					and statusline.combine_groups({
+						{ hl = "MiniStatuslineGit", strings = { git_text } },
+					})
+				or ""
+			local location_numbers = tostring(vim.fn.line(".")) .. "/" .. tostring(vim.fn.line("$"))
+			local location_text = show_location and ((show_location_gap and " " or "") .. "%l/%L ") or ""
+			local location_visible = show_location and ((show_location_gap and " " or "") .. location_numbers .. " ")
+				or ""
+			local location_part = location_text ~= ""
+					and statusline.combine_groups({
+						{ hl = "MiniStatuslineLocation", strings = { location_text } },
+					})
+				or ""
+			local right_width = vim.fn.strdisplaywidth(git_text) + vim.fn.strdisplaywidth(location_visible)
+			local left_fixed_width = vim.fn.strdisplaywidth(mode_display) + vim.fn.strdisplaywidth(modified_text)
+			local max_path_width = width - left_fixed_width - right_width
+			local path_text = truncate_right(" " .. filepath .. " ", max_path_width)
+			local path_part = path_text ~= ""
+					and statusline.combine_groups({
+						{ hl = "MiniStatuslinePath", strings = { path_text } },
+					})
+				or ""
+			local left = statusline.combine_groups({
+				{ strings = { mode_part } },
+				{ strings = { path_part } },
+				{ strings = { modified_part } },
+			})
+			local right = statusline.combine_groups({
+				{ strings = { git_part } },
+				{ strings = { location_part } },
+			})
 			return statusline.combine_groups({
-				{ hl = mode_hl, strings = { " " .. mode_text .. " " } },
+				{ strings = { left } },
+				{ strings = { "%=" } },
+				{ strings = { right } },
 			})
 		end
 
 		statusline.setup({
 			use_icons = use_icons,
 			content = {
-				active = function()
-					local width = vim.api.nvim_win_get_width(0)
-					local filepath = relative_path_for_display(vim.fn.expand("%:p"))
-					if width < 80 then
-						filepath = vim.fn.pathshorten(filepath)
-					end
-					local modified = vim.bo.modified
-							and statusline.combine_groups({
-								{ hl = "MiniStatuslineModified", strings = { " " .. icons.dot .. " " } },
-							})
-						or ""
-					local git = width < 90 and "" or statusline.section_git({ trunc_width = 40 })
-					local git_segment = git ~= ""
-							and statusline.combine_groups({
-								{ hl = "MiniStatuslineGit", strings = { " " .. git .. " " } },
-							})
-						or ""
-					local path_segment = statusline.combine_groups({
-						{ hl = "MiniStatuslinePath", strings = { " " .. filepath .. " " } },
-					})
-					local location_segment = width < 90 and ""
-						or statusline.combine_groups({
-							{ hl = "MiniStatuslineLocation", strings = { " %2l/%-2L " } },
-						})
-					local left = statusline.combine_groups({
-						{ strings = { mode_indicator(), " " } },
-						{ strings = { path_segment } },
-						{ strings = { modified } },
-					})
-					local right = statusline.combine_groups({
-						{ strings = { git_segment } },
-						{ strings = { location_segment } },
-					})
-					return statusline.combine_groups({
-						{ strings = { left } },
-						{ strings = { "%=" } },
-						{ strings = { right } },
-					})
-				end,
-				inactive = function()
-					local width = vim.api.nvim_win_get_width(0)
-					local filepath = relative_path_for_display(vim.fn.expand("%:p"))
-					if width < 80 then
-						filepath = vim.fn.pathshorten(filepath)
-					end
-					local modified = vim.bo.modified
-							and statusline.combine_groups({
-								{ hl = "MiniStatuslineModified", strings = { " " .. icons.dot .. " " } },
-							})
-						or ""
-					local git = width < 90 and "" or statusline.section_git({ trunc_width = 40 })
-					local git_segment = git ~= ""
-							and statusline.combine_groups({
-								{ hl = "MiniStatuslineGit", strings = { " " .. git .. " " } },
-							})
-						or ""
-					local path_segment = statusline.combine_groups({
-						{ hl = "MiniStatuslinePath", strings = { " " .. filepath .. " " } },
-					})
-					local location_segment = width < 90 and ""
-						or statusline.combine_groups({
-							{ hl = "MiniStatuslineLocation", strings = { " %2l/%-2L " } },
-						})
-					local left = statusline.combine_groups({
-						{ strings = { mode_indicator(), " " } },
-						{ strings = { path_segment } },
-						{ strings = { modified } },
-					})
-					local right = statusline.combine_groups({
-						{ strings = { git_segment } },
-						{ strings = { location_segment } },
-					})
-					return statusline.combine_groups({
-						{ strings = { left } },
-						{ strings = { "%=" } },
-						{ strings = { right } },
-					})
-				end,
+				active = statusline_content,
+				inactive = statusline_content,
 			},
 		})
 	end,

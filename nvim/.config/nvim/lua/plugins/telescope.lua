@@ -242,5 +242,14 @@ return {
 				follow = true,
 			})
 		end, { desc = "[S]earch [O]pencode files" })
+
+		-- Shortcut for searching tmux configuration files
+		vim.keymap.set("n", "<leader>st", function()
+			builtin.find_files({
+				cwd = vim.fn.expand("~/.config/tmux"),
+				hidden = true,
+				follow = true,
+			})
+		end, { desc = "[S]earch [T]mux files" })
 	end,
 }
