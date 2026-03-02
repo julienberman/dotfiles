@@ -10,6 +10,12 @@ return {
 		local palette = require("catppuccin.palettes").get_palette("mocha")
 		noice.setup({
 			views = {
+				popup = {
+					position = {
+						row = "65%",
+						col = "50%",
+					},
+				},
 				cmdline_popup = {
 					position = {
 						row = "65%",
