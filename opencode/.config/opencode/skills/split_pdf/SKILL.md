@@ -1,18 +1,18 @@
 ---
-name: split-pdf
+name: split_pdf
 description: Download, split, and deeply read academic PDFs. Use when asked to read, review, or summarize an academic paper. Splits PDFs into 4-page chunks, reads them in small batches, and produces structured reading notes — avoiding context window crashes and shallow comprehension.
 allowed-tools: Bash(python*), Bash(pip*), Bash(curl*), Bash(wget*), Bash(mkdir*), Bash(ls*), Read, Write, Edit, WebSearch, WebFetch
-argument-hint: [pdf-path-or-search-query]
+argument-hint: [pdf-path-or-search-query] [protocol]
 ---
 
-# Split-PDF: Download, Split, and Deep-Read Academic Papers
+# split_pdf: Download, Split, and Deep-Read Academic Papers
 
 **CRITICAL RULE: Never read a full PDF. Never.** Only read the 4-page split files, and only 3 splits at a time (~12 pages). Reading a full PDF will either crash the session with an unrecoverable "prompt too long" error — destroying all context — or produce shallow, hallucinated output. There are no exceptions.
 
 ## When This Skill Is Invoked
 
 The user wants you to read, review, or summarize an academic paper. The input is either:
-- A file path to a local PDF (e.g., `./articles/smith_2024.pdf`)
+- A file path to a local PDF (e.g., `./source/paper/literature/smith_2024.pdf`)
 - A search query or paper title (e.g., `"Gentzkow Shapiro Sinkinson 2014 competition newspapers"`)
 
 **Important:** You cannot search for a paper you don't know exists. The user MUST provide either a file path or a specific search query — an author name, a title, keywords, a year, or some combination that identifies the paper. If the user invokes this skill without specifying what paper to read, ask them. Do not guess.
@@ -21,16 +21,16 @@ The user wants you to read, review, or summarize an academic paper. The input is
 
 **If a local file path is provided:**
 - Verify the file exists
-- If the file is NOT already inside `./articles/`, copy it there (do not move — preserve the original location)
+- If the file is NOT already inside `./source/paper/literature`, copy it there (do not move — preserve the original location)
 - Proceed to Step 2
 
 **If a search query or paper title is provided:**
 1. Use WebSearch to find the paper
 2. Use WebFetch or Bash (curl/wget) to download the PDF
-3. Save it to `./articles/` in the project directory (create the directory if needed)
+3. Save it to `./source/paper/literature/` in the project directory (create the directory if needed)
 4. Proceed to Step 2
 
-**CRITICAL: Always preserve the original PDF.** The downloaded or provided PDF in `./articles/` must NEVER be deleted, moved, or overwritten at any point in this workflow. The split files are derivatives — the original is the permanent artifact. Do not clean up, do not remove, do not tidy. The original stays.
+**CRITICAL: Always preserve the original PDF.** The downloaded or provided PDF in `./source/paper/literature/` must NEVER be deleted, moved, or overwritten at any point in this workflow. The split files are derivatives — the original is the permanent artifact. Do not clean up, do not remove, do not tidy. The original stays.
 
 ## Step 2: Split the PDF
 
@@ -62,7 +62,7 @@ def split_pdf(input_path, output_dir, pages_per_chunk=4):
 
 **Directory convention:**
 ```
-articles/
+literature/
 ├── smith_2024.pdf                    # original PDF — NEVER DELETE THIS
 └── split_smith_2024/                 # split subdirectory
     ├── smith_2024_pp1-4.pdf
@@ -71,11 +71,13 @@ articles/
     └── ...
 ```
 
-The original PDF remains in `articles/` permanently. The splits are working copies. If anything goes wrong, you can always re-split from the original.
+The original PDF remains in `source/paper/literature/` permanently. The splits are working copies. If anything goes wrong, you can always re-split from the original.
 
 If PyPDF2 is not installed, install it: `pip install PyPDF2`
 
 ## Step 3: Read in Batches of 3 Splits
+
+**If the protocol is pause-and-confirm:**
 
 Read **exactly 3 split files at a time** (~12 pages). After each batch:
 
@@ -87,7 +89,11 @@ Read **exactly 3 split files at a time** (~12 pages). After each batch:
 
 4. **Wait** for the user to confirm before reading the next batch
 
-Do NOT read ahead. Do NOT read all splits at once. The pause-and-confirm protocol is mandatory.
+**If the protocol is not pause-and-confirm:**
+Read **exactly 3 split files at a time** (~12 pages). After each batch:
+1. **Read** the 3 split PDFs using the Read tool
+2. **Update** the running notes file (`notes.md` in the split subdirectory)
+3. **Continue** to the next 3 split files.
 
 ## Step 4: Structured Extraction
 
@@ -109,7 +115,7 @@ These questions extract what a researcher needs to **build on or replicate** the
 The output is `notes.md` in the split subdirectory:
 
 ```
-articles/split_smith_2024/notes.md
+literature/split_smith_2024/notes.md
 ```
 
 This file is **updated incrementally** after each batch. Structure it with clear headers for each of the 8 dimensions. After each batch, update whichever dimensions have new information — do not rewrite from scratch.
@@ -126,8 +132,8 @@ By the time all splits are read, the notes should contain specific data sources,
 
 | Step | Action |
 |------|--------|
-| **Acquire** | Download to `./articles/` or use existing local file |
-| **Split** | 4-page chunks into `./articles/split_<name>/` |
-| **Read** | 3 splits at a time, pause after each batch |
+| **Acquire** | Download to `.source/paper/literature/` or use existing local file |
+| **Split** | 4-page chunks into `./source/paper/literature/split_<name>/` |
+| **Read** | 3 splits at a time |
 | **Write** | Update `notes.md` with structured extraction |
 | **Confirm** | Ask user before continuing to next batch |
