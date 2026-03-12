@@ -29,6 +29,8 @@ function y() {
 # Starship
 eval "$(starship init zsh)"
 
+
+# Conda and Mamba configuration
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
 export MAMBA_EXE='/opt/homebrew/bin/mamba';
@@ -42,6 +44,7 @@ fi
 unset __mamba_setup
 # <<< mamba initialize <<<
 
+export CONDA_CONFIG="$HOME/.config/conda/condarc"
 conda config --set changeps1 false
 
 
