@@ -1,17 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
-  // ------ THEME ------
-  "theme": "catppuccin-macchiato",
   // ------ AGENTS -----
   "default_agent": "plan",
-  // ------ KEYBINDS -----
-  "keybinds": {
-      "leader": "ctrl+x",
-      "input_submit": "return",
-      "input_newline": "shift+return,ctrl+j",
-      "model_cycle_favorite": "<leader>f"
-  },
   "permission": {
       "webfetch": "allow",
       "websearch": "allow"

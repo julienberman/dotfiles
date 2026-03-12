@@ -17,3 +17,4 @@ TableSheet.bindkey("y", "yank-cell-or-selection")
 TableSheet.bindkey("d", "cut-cell-or-selection")
 TableSheet.bindkey("~l", "resize-col-wider")
 TableSheet.bindkey("~h", "resize-col-narrower")
+
