@@ -47,4 +47,6 @@ unset __mamba_setup
 export CONDA_CONFIG="$HOME/.config/conda/condarc"
 conda config --set changeps1 false
 
+# Global API keys (integrated with 1password)
+export CONTEXT7_API_KEY="$(op read "op://developer/context7/credential")"
 
