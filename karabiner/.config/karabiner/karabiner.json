@@ -1,4 +1,3 @@
-
 {
     "global": { "show_in_menu_bar": false },
     "profiles": [
@@ -6,66 +5,155 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "hyper key (left_command, left_control, left_option)",
+                        "description": "Hyper a/c/f/v/x/z --> Cmd a/c/f/v/x/z",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "identifiers": [{ "is_built_in_keyboard": true }],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "description": "caps_lock -> hyper",
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command",
-                                        "modifiers": ["left_control", "left_option"]
-                                    }
-                                ],
+                                "from": { "key_code": "a", "modifiers": { "mandatory": ["left_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "a", "modifiers": ["left_command"] }],
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "identifiers": [{ "is_built_in_keyboard": true }],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "description": "left_command -> hyper",
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command",
-                                        "modifiers": ["left_control", "left_option"]
-                                    }
-                                ],
+                                "from": { "key_code": "a", "modifiers": { "mandatory": ["right_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "a", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "c", "modifiers": { "mandatory": ["left_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "c", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "c", "modifiers": { "mandatory": ["right_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "c", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "f", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "f", "modifiers": { "mandatory": ["right_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "f", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "v", "modifiers": { "mandatory": ["left_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "v", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "v", "modifiers": { "mandatory": ["right_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "v", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "x", "modifiers": { "mandatory": ["left_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "x", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "x", "modifiers": { "mandatory": ["right_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "x", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "z", "modifiers": { "mandatory": ["left_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "z", "modifiers": ["left_command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "z", "modifiers": { "mandatory": ["right_command", "left_control", "left_option"], "optional": ["any"] } },
+                                "to": [{ "key_code": "z", "modifiers": ["left_command"] }],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "left_option -> left_command",
+                        "description": "caps_lock -> escape",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "identifiers": [{ "is_built_in_keyboard": true }],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "description": "",
-                                "from": {
-                                    "key_code": "left_option",
-                                    "modifiers": { "optional": ["any"] }
+                                "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
+                                "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "escape" }],
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Homerow mods (x c v m , .)",
+                        "manipulators": [
+                            {
+                                "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
+                                "description": "x -> left_option (hold) / x (tap)",
+                                "from": { "key_code": "x", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "left_option", "lazy": true }],
+                                "to_if_alone": [{ "key_code": "x" }],
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 300,
+                                    "basic.to_if_held_down_threshold_milliseconds": 300
                                 },
-                                "to": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
+                                "description": "c -> left_control (hold) / c (tap)",
+                                "from": { "key_code": "c", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "left_control", "lazy": true }],
+                                "to_if_alone": [{ "key_code": "c" }],
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 300,
+                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                },
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
+                                "description": "v -> hyper (hold) / v (tap)",
+                                "from": { "key_code": "v", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "left_command", "modifiers": ["left_control", "left_option"], "lazy": true }],
+                                "to_if_alone": [{ "key_code": "v" }],
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 300,
+                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                },
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
+                                "description": "m -> hyper (hold) / m (tap)",
+                                "from": { "key_code": "m", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "left_command", "modifiers": ["left_control", "left_option"], "lazy": true }],
+                                "to_if_alone": [{ "key_code": "m" }],
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 300,
+                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                },
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
+                                "description": ", -> right_control (hold) / , (tap)",
+                                "from": { "key_code": "comma", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "right_control", "lazy": true }],
+                                "to_if_alone": [{ "key_code": "comma" }],
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 300,
+                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                },
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
+                                "description": ". -> right_option (hold) / . (tap)",
+                                "from": { "key_code": "period", "modifiers": { "optional": ["any"] } },
+                                "to": [{ "key_code": "right_option", "lazy": true }],
+                                "to_if_alone": [{ "key_code": "period" }],
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 300,
+                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                },
                                 "type": "basic"
                             }
                         ]
