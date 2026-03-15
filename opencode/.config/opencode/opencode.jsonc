@@ -12,6 +12,12 @@
             "type": "remote",
             "url": "https://mcp.context7.com/mcp",
             "enabled": true
+        },
+        // Gets components
+        "shadcn": {
+            "type": "local",
+            "command": ["pnpm", "dlx", "shadcn@latest", "mcp"],
+            "enabled": true
         }
     }
 }

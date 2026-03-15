@@ -29,6 +29,12 @@ function y() {
 # Starship
 eval "$(starship init zsh)"
 
+# NVM 
+export NVM_DIR="$HOME/.nvm" 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Node
 
 # Conda and Mamba configuration
 # >>> mamba initialize >>>
@@ -49,4 +55,6 @@ conda config --set changeps1 false
 
 # Global API keys (integrated with 1password)
 export CONTEXT7_API_KEY="$(op read "op://developer/context7/credential")"
+
+
 
