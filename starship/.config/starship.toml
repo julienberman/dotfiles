@@ -6,16 +6,17 @@ palette = "catppuccin_mocha"
 add_newline = true
 command_timeout = 2000
 
-format = """$conda$username$hostname$git_branch$git_status$python$directory
-$character
+format = """
+[╭─](overlay1)$directory$git_branch$git_status$git_metrics
+[╰─](overlay1)$character
 """
 
 # ─────────────────────────────
 # Prompt character
 # ─────────────────────────────
 [character]
-success_symbol = "[⎯](green)"
-error_symbol   = "[⎯](red)"
+success_symbol = "[❯](green)"
+error_symbol   = "[❯](red)"
 
 [conda]
 style = "lavender"
@@ -29,7 +30,7 @@ format = "[\\($environment\\)]($style)"
 style_user = "lavender"
 style_root = "maroon"
 format = " [$user]($style) "
-disabled = false
+disabled = true 
 show_always = true
 
 # ─────────────────────────────
@@ -48,46 +49,41 @@ disabled = true
 truncation_length = 0
 truncation_symbol = "…/"
 home_symbol = "~"
-read_only = "  "
-format = "[//](overlay1 bold) [$path]($style)[$read_only](red) "
-disabled = false
-style = "flamingo"
+read_only = " "
+format = "[ ](lavender)[$path](lavender)[$read_only](lavender) "
+disabled = false 
 
 # ─────────────────────────────
 # Git branch
 # ─────────────────────────────
 [git_branch]
-symbol = " "
-format = "[//](overlay1 bold) [$symbol$branch]($style) "
-style = "peach"
+symbol = " "
+format = "[git ](mauve)[$symbol](mauve)[$branch](rosewater) "
+
 
 # ─────────────────────────────
 # Git status
 # ─────────────────────────────
 [git_status]
 disabled = false
-format = "([$all_status$ahead_behind]($style)) "
-style = "peach"
+format = "([$all_status$ahead_behind](mauve)) "
 
-conflicted = "🏳 "
-untracked  = " "
-modified   = " "
-staged     = " "
-renamed    = "襁 "
-deleted    = " "
-stashed    = " "
+conflicted = " "
+untracked  = " "
+modified   = " "
+staged     = " "
+renamed    = " "
+deleted    = " "
+stashed    = "󰏗 "
 ahead      = "⇡${count} "
 behind     = "⇣${count} "
 diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
 
-# ─────────────────────────────
-# Python
-# ─────────────────────────────
-[python]
-symbol = " "
-format = "[//](overlay1 bold) [$symbol$version]($style) "
-style = "lavender"
-python_binary = ["python3", "python"]
+[git_metrics]
+disabled = false
+format = "([+$added]($added_style) [-$deleted]($deleted_style)) "
+added_style = "green"
+deleted_style = "red"
 
 # ─────────────────────────────
 # Palette definitions
