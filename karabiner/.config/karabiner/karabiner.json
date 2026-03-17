@@ -88,11 +88,13 @@
                                 "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
                                 "description": "x -> left_option (hold) / x (tap)",
                                 "from": { "key_code": "x", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "left_option", "lazy": true }],
-                                "to_if_alone": [{ "key_code": "x" }],
+                                "to_if_alone": [{ "halt": true, "key_code": "x" }],
+                                "to_if_held_down": [{ "key_code": "left_option" }],
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "x" }] },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 300,
-                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                    "basic.to_delayed_action_delay_milliseconds": 350,
+                                    "basic.to_if_alone_timeout_milliseconds": 350,
+                                    "basic.to_if_held_down_threshold_milliseconds": 350
                                 },
                                 "type": "basic"
                             },
@@ -100,11 +102,13 @@
                                 "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
                                 "description": "c -> left_control (hold) / c (tap)",
                                 "from": { "key_code": "c", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "left_control", "lazy": true }],
-                                "to_if_alone": [{ "key_code": "c" }],
+                                "to_if_alone": [{ "halt": true, "key_code": "c" }],
+                                "to_if_held_down": [{ "key_code": "left_control" }],
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "c" }] },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 300,
-                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                    "basic.to_delayed_action_delay_milliseconds": 350,
+                                    "basic.to_if_alone_timeout_milliseconds": 350,
+                                    "basic.to_if_held_down_threshold_milliseconds": 350
                                 },
                                 "type": "basic"
                             },
@@ -112,11 +116,13 @@
                                 "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
                                 "description": "v -> hyper (hold) / v (tap)",
                                 "from": { "key_code": "v", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "left_command", "modifiers": ["left_control", "left_option"], "lazy": true }],
-                                "to_if_alone": [{ "key_code": "v" }],
+                                "to_if_alone": [{ "halt": true, "key_code": "v" }],
+                                "to_if_held_down": [{ "key_code": "left_command", "modifiers": ["left_control", "left_option"] }],
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "v" }] },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 300,
-                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                    "basic.to_delayed_action_delay_milliseconds": 350,
+                                    "basic.to_if_alone_timeout_milliseconds": 350,
+                                    "basic.to_if_held_down_threshold_milliseconds": 350
                                 },
                                 "type": "basic"
                             },
@@ -124,11 +130,13 @@
                                 "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
                                 "description": "m -> hyper (hold) / m (tap)",
                                 "from": { "key_code": "m", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "left_command", "modifiers": ["left_control", "left_option"], "lazy": true }],
-                                "to_if_alone": [{ "key_code": "m" }],
+                                "to_if_alone": [{ "halt": true, "key_code": "m" }],
+                                "to_if_held_down": [{ "key_code": "left_command", "modifiers": ["left_control", "left_option"] }],
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "m" }] },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 300,
-                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                    "basic.to_delayed_action_delay_milliseconds": 350,
+                                    "basic.to_if_alone_timeout_milliseconds": 350,
+                                    "basic.to_if_held_down_threshold_milliseconds": 350
                                 },
                                 "type": "basic"
                             },
@@ -136,11 +144,13 @@
                                 "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
                                 "description": ", -> right_control (hold) / , (tap)",
                                 "from": { "key_code": "comma", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "right_control", "lazy": true }],
-                                "to_if_alone": [{ "key_code": "comma" }],
+                                "to_if_alone": [{ "halt": true, "key_code": "comma" }],
+                                "to_if_held_down": [{ "key_code": "right_control" }],
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "comma" }] },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 300,
-                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                    "basic.to_delayed_action_delay_milliseconds": 350,
+                                    "basic.to_if_alone_timeout_milliseconds": 350,
+                                    "basic.to_if_held_down_threshold_milliseconds": 350
                                 },
                                 "type": "basic"
                             },
@@ -148,11 +158,13 @@
                                 "conditions": [{ "identifiers": [{ "is_built_in_keyboard": true }], "type": "device_if" }],
                                 "description": ". -> right_option (hold) / . (tap)",
                                 "from": { "key_code": "period", "modifiers": { "optional": ["any"] } },
-                                "to": [{ "key_code": "right_option", "lazy": true }],
-                                "to_if_alone": [{ "key_code": "period" }],
+                                "to_if_alone": [{ "halt": true, "key_code": "period" }],
+                                "to_if_held_down": [{ "key_code": "right_option" }],
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "period" }] },
                                 "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 300,
-                                    "basic.to_if_held_down_threshold_milliseconds": 300
+                                    "basic.to_delayed_action_delay_milliseconds": 350,
+                                    "basic.to_if_alone_timeout_milliseconds": 350,
+                                    "basic.to_if_held_down_threshold_milliseconds": 350
                                 },
                                 "type": "basic"
                             }
