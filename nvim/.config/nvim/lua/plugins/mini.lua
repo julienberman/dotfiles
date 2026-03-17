@@ -20,7 +20,12 @@ return {
 		})
 
 		-- Add/delete/replace surroundings (brackets, quotes, etc.)
-		-- local surround = require("mini.surround").setup()
+		local surround = require("mini.surround")
+		surround.setup()
+
+		-- Add various text operators
+		local operators = require("mini.operators")
+		operators.setup()
 
 		-- Command line
 		-- local cmdline = require("mini.cmdline")
