@@ -1,16 +1,27 @@
-[user]
-    email = julien.d.berman@gmail.com
-    name = Julien Berman
-
 [core]
     pager = delta
     editor = nvim
 
+[user]
+    email = julien.d.berman@gmail.com
+    name = Julien Berman
+
 [init]
     defaultBranch = main
+
+[push]
+    autoSetupRemote = true
+    default = current
+
+[alias]
+    undo = reset --soft HEAD^
+
+[delta]
+    line-numbers = true
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+
