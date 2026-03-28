@@ -150,6 +150,7 @@ rtp:prepend(lazypath)
 
 -- Manually set up plugins
 require("lazy").setup({
+	require("plugins.99"),
 	require("plugins.autopairs"),
 	require("plugins.blink-cmp"),
 	require("plugins.conform"),
