@@ -1,8 +1,9 @@
 ---
 name: explain 
 description: Answers conceptual and architectural questions about the codebase
-model: openai/gpt-5.4
+model: openai/gpt-5.5
 type: agent
+variant: medium
 temperature: 0.1
 permissions:
   read: true

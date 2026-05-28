@@ -14,21 +14,11 @@ return {
 			"<cmd>Yazi<cr>",
 			desc = "Open yazi at the current file",
 		},
-		{
-			-- Open in the current working directory
-			"<leader>ycw",
-			"<cmd>Yazi cwd<cr>",
-			desc = "Open the file manager in nvim's working directory",
-		},
-		{
-			"<c-up>",
-			"<cmd>Yazi toggle<cr>",
-			desc = "Resume the last yazi session",
-		},
 	},
 	opts = {
 		-- if you want to open yazi instead of netrw, see below for more info
-		open_for_directories = false,
+		open_for_directories = true,
+		highlight_hovered_buffers_in_same_directory = false,
 		keymaps = {
 			show_help = "<f1>",
 		},
