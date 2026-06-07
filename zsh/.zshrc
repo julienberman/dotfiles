@@ -58,3 +58,6 @@ export CONTEXT7_API_KEY="$(op read "op://developer/context7/credential")"
 
 
 
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
