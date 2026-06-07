@@ -159,7 +159,6 @@ require("lazy").setup({
 	require("plugins.harpoon"),
 	require("plugins.lazydev"),
 	require("plugins.mini"),
-	-- require("plugins.neo-tree"),
 	require("plugins.neoscroll"),
 	require("plugins.noice"),
 	require("plugins.nvim-lspconfig"),

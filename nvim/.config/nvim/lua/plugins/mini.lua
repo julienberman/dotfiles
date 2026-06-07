@@ -9,12 +9,25 @@ return {
 
 		-- Enhance "around" and "in" textobjects
 		local ai = require("mini.ai")
+		local spec_treesitter = ai.gen_spec.treesitter
 		ai.setup({
 			n_lines = 500,
 			custom_textobjects = {
-				f = ai.gen_spec.treesitter({
+				f = spec_treesitter({
 					a = "@function.outer",
 					i = "@function.inner",
+				}),
+				e = spec_treesitter({
+					a = {
+						"@function.outer",
+						"@conditional.outer",
+						"@loop.outer",
+					},
+					i = {
+						"@function.inner",
+						"@conditional.inner",
+						"@loop.inner",
+					},
 				}),
 			},
 		})
@@ -30,6 +43,10 @@ return {
 		-- Command line
 		-- local cmdline = require("mini.cmdline")
 		-- cmdline.setup()
+
+		-- Comments
+		local comment = require("mini.comment")
+		comment.setup()
 
 		-- Recover previous sessions
 		local sessions = require("mini.sessions")
