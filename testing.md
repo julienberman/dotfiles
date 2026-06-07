@@ -3,7 +3,7 @@
 - Navigation
     - To the file
     - Inside the file
-
+        deleting words in insert mode
 - Text change: add, delete, replace
 
 # Basic concepts
@@ -14,8 +14,6 @@
 
 - Here is a list: objects = [["foo", "b(r", "b)z"]]
 - Here are some functon arguments: def fn(mod1, mod2, mod3)
-
-text
 
 
 

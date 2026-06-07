@@ -34,21 +34,28 @@ stow -t "$HOME" [package]
 
 Here are notes to myself of things to work on in order to use my neovim config more efficiently.
 
-text_a
-
-text_b
-
-
-
-1) Base vim
-- 
-2) Mini.ai
+1) Base vim, normal mode
+- Registers
+    - Yank to register with `"ay`
+    - Paste from register with `"ap`
+    - Yank register, `"0`, saves last yank (but not deletes!)
+    - Numbered registers, `"1-9`, saves recently deleted (but not yanked!)
+- Macros
+    - `q[register]` -> record macro to given register
+    - `@[register]` -> apply macro from given register
+- Case changing
+    - gu[OBJECT] gU[OBJECT] -> change to uppercase / lowercase
+2) Base vim, edit mode
+- `Ctrl+t` / `Ctrl+d` -> add / remove indent
+- `Ctrl+w` -> delete word
+- `Ctrl+R [register]` -> paste from register
+3) Mini.ai
 - `vab` and `vib` -> select around / in brackets
 - `vaq` and `viq` -> select around / in quotations
 - `vae` and `vie` -> select around / in expression (loop, conditional, function)
     - Note: repeating `ae` or `ie` will select the next level up
 - `cana` and `cina` -> edit around / in next argument
-3) Mini.surround
+4) Mini.surround
 - `sai[TEXTOBJECT][CHARACTER]` -> surround textobject with character
     - E.g. `saiw]` -> surround word with `]`
     - E.g. `saib}` -> surround brackets with `}`
@@ -56,7 +63,7 @@ text_b
 - `sd[CHARACTER]` -> remove characters surrounding cursor
 - `sr[CHARACTER]` -> remove characters surrounding cursor
 - `sdf` -> remove function declaration
-4) Mini.comment
+5) Mini.comment
 - `gcc` -> comment line
 - `gc[OBJECT]` -> comment text object
 - `gcgc` -> uncomment comment block

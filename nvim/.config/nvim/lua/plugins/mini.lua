@@ -62,11 +62,14 @@ return {
 		vim.api.nvim_set_hl(0, "MiniStatuslineModified", { fg = palette.lavender, bg = palette.surface0, bold = true })
 		vim.api.nvim_set_hl(0, "MiniStatuslineGit", { fg = palette.text, bg = palette.surface0 })
 		vim.api.nvim_set_hl(0, "MiniStatuslineLocation", { fg = palette.text, bg = palette.surface0 })
+		vim.api.nvim_set_hl(0, "MiniStatuslineRecording", { fg = palette.red, bg = palette.surface0, bold = true })
+		vim.api.nvim_set_hl(0, "MiniStatuslineRecordingRegister", { fg = palette.peach, bg = palette.surface0, bold = true })
 
 		local use_icons = vim.g.have_nerd_font
 		local icons = {
 			dot = use_icons and "●" or "*",
 		}
+		local recording_register = ""
 
 		local function git_root_for_path(path)
 			local dir = path ~= "" and vim.fn.fnamemodify(path, ":h") or vim.fn.getcwd()
@@ -105,6 +108,35 @@ return {
 			return segment, mode_display
 		end
 
+		local function recording_segment()
+			if recording_register == "" then
+				return "", ""
+			end
+
+			local prefix = " " .. icons.dot .. " Recording macro to register "
+			local suffix = " "
+			local recording_text = prefix .. recording_register .. suffix
+			local segment = statusline.combine_groups({
+				{ hl = "MiniStatuslineRecording", strings = { prefix } },
+				{ hl = "MiniStatuslineRecordingRegister", strings = { recording_register } },
+				{ hl = "MiniStatuslineRecording", strings = { suffix } },
+			})
+
+			return segment, recording_text
+		end
+
+		vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
+			callback = function(event)
+				if event.event == "RecordingEnter" then
+					recording_register = vim.fn.reg_recording()
+				else
+					recording_register = ""
+				end
+
+				vim.cmd("redrawstatus")
+			end,
+		})
+
 		local function truncate_right(text, max_width)
 			if max_width <= 0 then
 				return ""
@@ -126,6 +158,7 @@ return {
 				filepath = vim.fn.pathshorten(filepath)
 			end
 			local mode_part, mode_display = mode_segment()
+			local recording_part, recording_text = recording_segment()
 			local modified = vim.bo.modified
 			local modified_text = modified and (" " .. icons.dot .. " ") or ""
 			local modified_part = modified
@@ -150,7 +183,9 @@ return {
 					})
 				or ""
 			local right_width = vim.fn.strdisplaywidth(git_text) + vim.fn.strdisplaywidth(location_visible)
-			local left_fixed_width = vim.fn.strdisplaywidth(mode_display) + vim.fn.strdisplaywidth(modified_text)
+			local left_fixed_width = vim.fn.strdisplaywidth(mode_display)
+				+ vim.fn.strdisplaywidth(recording_text)
+				+ vim.fn.strdisplaywidth(modified_text)
 			local max_path_width = width - left_fixed_width - right_width
 			local path_text = truncate_right(" " .. filepath .. " ", max_path_width)
 			local path_part = path_text ~= ""
@@ -161,6 +196,7 @@ return {
 			local left = statusline.combine_groups({
 				{ strings = { mode_part } },
 				{ strings = { path_part } },
+				{ strings = { recording_part } },
 				{ strings = { modified_part } },
 			})
 			local right = statusline.combine_groups({
