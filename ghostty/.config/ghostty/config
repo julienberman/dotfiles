@@ -19,3 +19,4 @@ app-notifications = no-clipboard-copy
 
 # Keybindings
 keybind = shift+enter=text:\x1b[13;2u
+keybind = ctrl+backspace=text:\x1b[127;5u

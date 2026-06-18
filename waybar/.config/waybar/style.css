@@ -20,7 +20,9 @@ window#waybar {
 #memory,
 #disk,
 #pulseaudio,
-#network {
+#bluetooth,
+#network,
+#tray {
   color: @crust;
   margin-top: 6px;
   margin-bottom: 6px;
@@ -40,7 +42,7 @@ window#waybar {
 
 #clock,
 #disk,
-#network {
+#tray {
   margin-right: 5px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -124,9 +126,17 @@ window#waybar {
   background: #F5E0DC;
 }
 
+#bluetooth {
+  background: #89B4FA;
+}
+
 #network {
   background: #CBA6F7;
   padding-right: 13px;
+}
+
+#tray {
+  background: @surface0;
 }
 
 

@@ -15,12 +15,14 @@
     "modules-right": [
 	"wlr/taskbar",
 	"pulseaudio", 
-	"network"
+	"bluetooth",
+	"network",
+	"tray"
     ],
     /* ==== MODULES LEFT ==== */
     "clock": {
-	"timezone": "U.S./Eastern",
-	"format": "{:%I:%M %d, %m}",
+	"timezone": "America/New_York",
+	"format": "{:%I:%M %b %e}",
 	"tooltip-format": "{calendar}",
 	"calendar": {
 	    "mode": "month"
@@ -72,14 +74,29 @@
 	"format-muted": "  {format_source}",
 	"format-icons": {
 	    "default": ["", "", " "]
-	}
+	},
+	"on-click": "pavucontrol"
+	},
+    "bluetooth": {
+	"format": "",
+	"format-connected": " {device_alias}",
+	"format-disabled": "󰂲",
+	"format-off": "󰂲",
+	"on-click": "blueman-manager"
     },
     "network": {
 	"format": "{ifname}",
-	"format-wifi": "{ifname}  ",
+	"format-wifi": "{essid}  ",
 	"format-ethernet": "{ifname} 󰈀",
 	"format-linked": "{ifname} (No IP) ",
-	"format-disconnected": " ",
+	"format-disconnected": "Disconnected  ",
+	"tooltip-format-wifi": "Connected to {essid}\nInterface: {ifname}\nSignal: {signalStrength}%",
+	"tooltip-format-ethernet": "Connected via Ethernet\nInterface: {ifname}",
+	"tooltip-format-disconnected": "Disconnected",
 	"format-icons": ["󰤟", "󰤢", "󰤥"]
+	},
+    "tray": {
+	"icon-size": 18,
+	"spacing": 8
     }
 }
