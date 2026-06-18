@@ -34,20 +34,6 @@ hl.bind(vars.main_mod .. " + tab", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(vars.main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(vars.main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.define_submap("dragwindow", function()
-	for workspace = 1, 10 do
-		local key = workspace % 10
-
-		hl.bind(vars.main_mod .. " + " .. key, hl.dsp.window.move({ workspace = workspace }))
-	end
-
-	hl.bind(vars.main_mod .. " + tab", hl.dsp.window.move({ workspace = "e+1" }))
-	hl.bind("escape", hl.dsp.submap("reset"))
-	hl.bind("mouse:272", hl.dsp.submap("reset"), { release = true, ignore_mods = true })
-end)
-
-hl.bind(vars.main_mod .. " + mouse:272", hl.dsp.submap("dragwindow"))
-
 hl.bind("SUPER + V", hl.dsp.exec_cmd("uwsm app -- ghostty --class clipse -e clipse"))
 hl.bind(
 	"XF86AudioRaiseVolume",
