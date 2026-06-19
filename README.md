@@ -76,7 +76,7 @@ Here are notes to myself of things to work on in order to use my neovim config m
 Here are notes to myself for how to use git more effectively.
 
 ***ADDING MERGE CONFLICT HERE***
-- Info from "test-merge-conflict branch."
+- Info from "main" branch.
 
 1) Plumbing
 - Three types of objects -> commits, trees, and blobs.
