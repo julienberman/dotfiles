@@ -77,4 +77,22 @@ return {
 			{ "<leader>gl", "<cmd>Neogit log<cr>", desc = "Show git log" },
 		},
 	},
+	{
+		"sindrets/diffview.nvim",
+		cmd = {
+			"DiffviewOpen",
+			"DiffviewClose",
+			"DiffviewToggleFiles",
+			"DiffviewFocusFiles",
+		},
+		opts = {
+			file_panel = {
+				listing_style = "tree",
+				win_config = {
+					position = "left",
+					width = 20,
+				},
+			},
+		},
+	},
 }

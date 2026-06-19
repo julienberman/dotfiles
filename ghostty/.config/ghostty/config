@@ -3,7 +3,7 @@
 theme = catppuccin-mocha.conf
 font-family = CaskaydiaCove Nerd Font
 background-opacity = 1
-font-size = 18 
+font-size = 14
 cursor-style = block
 adjust-cell-height = 35%
 title = " "
