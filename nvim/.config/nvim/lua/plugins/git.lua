@@ -14,7 +14,7 @@ return {
 		},
 		cmd = "Neogit",
 		opts = {
-			kind = "floating",
+			kind = "vsplit",
 			commit_editor = {
 				kind = "floating",
 				show_staged_diff = false,
