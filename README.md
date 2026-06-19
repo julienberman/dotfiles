@@ -1,4 +1,4 @@
-BAZ
+BAR
 
 ### Dotfiles
 
