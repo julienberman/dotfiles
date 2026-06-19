@@ -1,3 +1,5 @@
+FOO
+
 ### Dotfiles
 
 Configuration files for various tools:
