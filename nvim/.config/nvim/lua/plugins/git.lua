@@ -15,6 +15,55 @@ return {
 		cmd = "Neogit",
 		opts = {
 			kind = "floating",
+			commit_editor = {
+				kind = "floating",
+				show_staged_diff = false,
+				-- Accepted values:
+				-- "split" to show the staged diff below the commit editor
+				-- "vsplit" to show it to the right
+				-- "split_above" Like :top split
+				-- "vsplit_left" like :vsplit, but open to the left
+				-- "auto" "vsplit" if window would have 80 cols, otherwise "split"
+				staged_diff_split_kind = "split",
+				spell_check = true,
+			},
+			commit_select_view = {
+				kind = "tab",
+			},
+			commit_view = {
+				kind = "vsplit",
+				verify_commit = vim.fn.executable("gpg") == 1,
+			},
+			log_view = {
+				kind = "floating",
+			},
+			rebase_editor = {
+				kind = "auto",
+			},
+			reflog_view = {
+				kind = "tab",
+			},
+			merge_editor = {
+				kind = "auto",
+			},
+			preview_buffer = {
+				kind = "floating_console",
+			},
+			popup = {
+				kind = "split",
+				show_title = false,
+			},
+			stash = {
+				kind = "floating",
+			},
+			refs_view = {
+				kind = "tab",
+			},
+			signs = {
+				section = { "", "" },
+				item = { "", "" },
+				hunk = { "", "" },
+			},
 		},
 		keys = {
 			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
