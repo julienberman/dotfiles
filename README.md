@@ -30,6 +30,7 @@ Run the following command to create symlinks of the dotfiles for each tool:
 stow -t "$HOME" [package]
 ```
 
+
 ### Neovim Notes
 
 Here are notes to myself of things to work on in order to use my neovim config more efficiently.
@@ -74,6 +75,8 @@ Here are notes to myself of things to work on in order to use my neovim config m
 
 Here are notes to myself for how to use git more effectively.
 
+***ADDING MERGE CONFLICT HERE***
+- Info from "test-merge-conflict branch."
 
 1) Plumbing
 - Three types of objects -> commits, trees, and blobs.
