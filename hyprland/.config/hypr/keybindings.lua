@@ -8,20 +8,38 @@ hl.bind(vars.main_mod .. " + L", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(vars.main_mod .. " + return", hl.dsp.exec_cmd(vars.menu))
 hl.bind(vars.main_mod .. " + P", hl.dsp.window.pseudo())
 hl.bind(vars.main_mod .. " + B", hl.dsp.exec_cmd(vars.browser))
-
-hl.bind(vars.main_mod .. " + C", hl.dsp.send_shortcut({ mods = "CTRL", key = "C" }))
-hl.bind(vars.main_mod .. " + X", hl.dsp.send_shortcut({ mods = "CTRL", key = "X" }))
-hl.bind(vars.main_mod .. " + V", hl.dsp.send_shortcut({ mods = "CTRL", key = "V" }))
-hl.bind(vars.main_mod .. " + Z", hl.dsp.send_shortcut({ mods = "CTRL", key = "Z" }))
-hl.bind(vars.main_mod .. " + A", hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }))
-hl.bind(vars.main_mod .. " + F", hl.dsp.send_shortcut({ mods = "CTRL", key = "F" }))
-
 hl.bind(vars.main_mod .. " + E", hl.dsp.exec_cmd("hyprshot -m region -o " .. vars.path_hyprshot))
-
 hl.bind(vars.main_mod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(vars.main_mod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(vars.main_mod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(vars.main_mod .. " + j", hl.dsp.focus({ direction = "down" }))
+
+hl.bind(vars.main_mod .. " + C", function()
+	local win = hl.get_active_window()
+	local is_terminal = win and vars.terminal_classes[win.class]
+
+	hl.dispatch(hl.dsp.send_shortcut({
+		mods = is_terminal and "CTRL SHIFT" or "CTRL",
+		key = "C",
+		window = "activewindow",
+	}))
+end)
+
+hl.bind(vars.main_mod .. " + V", function()
+	local win = hl.get_active_window()
+	local is_terminal = win and vars.terminal_classes[win.class]
+
+	hl.dispatch(hl.dsp.send_shortcut({
+		mods = is_terminal and "CTRL SHIFT" or "CTRL",
+		key = "V",
+		window = "activewindow",
+	}))
+end)
+
+hl.bind(vars.main_mod .. " + X", hl.dsp.send_shortcut({ mods = "CTRL", key = "X" }))
+hl.bind(vars.main_mod .. " + Z", hl.dsp.send_shortcut({ mods = "CTRL", key = "Z" }))
+hl.bind(vars.main_mod .. " + A", hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }))
+hl.bind(vars.main_mod .. " + F", hl.dsp.send_shortcut({ mods = "CTRL", key = "F" }))
 
 for workspace = 1, 10 do
 	local key = workspace % 10
@@ -34,7 +52,10 @@ hl.bind(vars.main_mod .. " + tab", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(vars.main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(vars.main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind("SUPER + V", hl.dsp.exec_cmd("uwsm app -- ghostty --class clipse -e clipse"))
+hl.bind(
+	vars.main_mod .. " + SHIFT + V",
+	hl.dsp.exec_cmd("uwsm app -- " .. vars.terminal .. " --class clipse -e clipse")
+)
 hl.bind(
 	"XF86AudioRaiseVolume",
 	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
