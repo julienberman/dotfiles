@@ -15,6 +15,10 @@ return {
 		cmd = "Neogit",
 		opts = {
 			kind = "vsplit",
+			integrations = {
+				diffview = true,
+				telescope = false,
+			},
 			commit_editor = {
 				kind = "floating",
 				show_staged_diff = false,
@@ -50,7 +54,7 @@ return {
 				kind = "floating_console",
 			},
 			popup = {
-				kind = "split",
+				kind = "tab",
 				show_title = false,
 			},
 			stash = {
