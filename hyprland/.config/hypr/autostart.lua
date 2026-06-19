@@ -1,7 +1,6 @@
 local vars = require("variables")
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("uwsm app -- " .. vars.terminal)
 	hl.exec_cmd("uwsm app -- nm-applet --indicator")
 	hl.exec_cmd("uwsm app -- hyprlock")
 	hl.exec_cmd("uwsm app -- hypridle")

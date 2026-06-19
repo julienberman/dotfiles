@@ -2,6 +2,29 @@
 
 return {
 	{
+		"NeogitOrg/neogit",
+		lazy = true,
+		dependencies = {
+			-- diff view
+			"sindrets/diffview.nvim",
+			-- Custom log pager
+			"m00qek/baleia.nvim",
+			-- Picker
+			"nvim-telescope/telescope.nvim",
+		},
+		cmd = "Neogit",
+		opts = {
+			kind = "floating",
+		},
+		keys = {
+			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
+			{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Show diff view between current and head" },
+			{ "<leader>gD", "<cmd>DiffviewOpen main<cr>", desc = "Show diff view between current and main" },
+			{ "<leader>gc", "<cmd>DiffviewClose<cr>", desc = "Close diff view" },
+			{ "<leader>gl", "<cmd>Neogit log<cr>", desc = "Show git log" },
+		},
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			on_attach = function(bufnr)

@@ -34,7 +34,7 @@ vim.o.undofile = true
 
 -- Set default shiftwidth and tab sizing, expand tabs to spaces
 vim.opt.shiftwidth = 4
-vim.opt.tabstop = 8
+vim.opt.tabstop = 4
 vim.opt.expandtab = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
@@ -154,7 +154,7 @@ require("lazy").setup({
 	require("plugins.autopairs"),
 	require("plugins.blink-cmp"),
 	require("plugins.conform"),
-	require("plugins.gitsigns"),
+	require("plugins.git"),
 	require("plugins.guess-indent"),
 	require("plugins.harpoon"),
 	require("plugins.lazydev"),
