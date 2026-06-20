@@ -54,7 +54,7 @@ hl.bind(vars.main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true 
 
 hl.bind(
 	vars.main_mod .. " + SHIFT + V",
-	hl.dsp.exec_cmd("uwsm app -- " .. vars.terminal .. " --class clipse -e clipse")
+	hl.dsp.exec_cmd("uwsm app -- " .. vars.terminal .. " --class=clipse -e clipse")
 )
 hl.bind(
 	"XF86AudioRaiseVolume",
