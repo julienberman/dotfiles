@@ -24,6 +24,12 @@
             "type": "local",
             "command": ["pnpm", "dlx", "shadcn@latest", "mcp"],
             "enabled": true
+        },
+        // Handles Railway deployments
+        "railway": {
+            "type": "local",
+            "command": ["railway", "mcp"],
+            "enabled": true
         }
     }
 }

@@ -4,7 +4,7 @@ hl.bind(vars.main_mod .. " + T", hl.dsp.exec_cmd(vars.terminal))
 hl.bind(vars.main_mod .. " + Q", hl.dsp.window.close())
 hl.bind(vars.main_mod .. " + M", hl.dsp.exit())
 hl.bind(vars.main_mod .. " + G", hl.dsp.exec_cmd(vars.file_manager))
-hl.bind(vars.main_mod .. " + L", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(vars.main_mod .. " + U", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(vars.main_mod .. " + return", hl.dsp.exec_cmd(vars.menu))
 hl.bind(vars.main_mod .. " + P", hl.dsp.window.pseudo())
 hl.bind(vars.main_mod .. " + B", hl.dsp.exec_cmd(vars.browser))
@@ -46,6 +46,15 @@ for workspace = 1, 10 do
 
 	hl.bind(vars.main_mod .. " + " .. key, hl.dsp.focus({ workspace = workspace }))
 end
+
+for workspace = 1, 10 do
+	local key = workspace % 10
+
+	hl.bind(vars.main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace, follow = true }))
+end
+
+hl.bind(vars.main_mod .. " + SHIFT + h", hl.dsp.window.move({ workspace = "-1", follow = true }))
+hl.bind(vars.main_mod .. " + SHIFT + l", hl.dsp.window.move({ workspace = "+1", follow = true }))
 
 hl.bind(vars.main_mod .. " + tab", hl.dsp.focus({ workspace = "e+1" }))
 
