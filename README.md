@@ -1,5 +1,3 @@
-BAR
-
 ### Dotfiles
 
 Configuration files for various tools:
