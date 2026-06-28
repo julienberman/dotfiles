@@ -81,9 +81,6 @@ vim.opt.cmdheight = 0
 -- Clear highlights on search when press esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Set `jj` to be equivalent to `esc`
-vim.keymap.set("i", "jj", "<Esc>")
-
 -- Make page down and page up automatically center cursor
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Page up, center cursor" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Page down, center cursor" })
@@ -162,6 +159,7 @@ require("lazy").setup({
 	require("plugins.neoscroll"),
 	require("plugins.noice"),
 	require("plugins.nvim-lspconfig"),
+	require("plugins.render-markdown"),
 	require("plugins.snacks"),
 	require("plugins.telescope"),
 	require("plugins.theme"),
