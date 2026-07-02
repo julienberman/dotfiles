@@ -12,8 +12,21 @@ return {
 		auto_integrations = true,
 		custom_highlights = function(colors)
 			return {
-				NoiceCmdlineIcone = { fg = colors.mauve },
+				NoiceCmdlineIcon = { fg = colors.mauve },
 				NoiceCmdlinePopupBorder = { fg = colors.mauve },
+				MiniStatuslineModeNormal = { fg = colors.base, bg = colors.lavender, bold = true },
+				MiniStatuslineModeInsert = { fg = colors.base, bg = colors.green, bold = true },
+				MiniStatuslineFilename = { fg = colors.text, bg = colors.surface0 },
+				MiniStatuslineModified = { fg = colors.lavender, bg = colors.surface0, bold = true },
+				MiniStatuslineRecording = { fg = colors.red, bg = colors.surface0, bold = true },
+				SnacksDashboardNormal = { fg = colors.lavender, bg = colors.base },
+				SnacksDashboardHeader = { fg = colors.lavender, bg = colors.base },
+				SnacksDashboardFooter = { fg = colors.lavender, bg = colors.base },
+				SnacksDashboardIcon = { fg = colors.lavender, bg = colors.base },
+				SnacksDashboardDesc = { fg = colors.lavender, bg = colors.base },
+				SnacksDashboardKey = { fg = colors.lavender, bg = colors.base },
+				SnacksDashboardDir = { fg = colors.lavender, bg = colors.base },
+				SnacksDashboardFile = { fg = colors.lavender, bg = colors.base },
 			}
 		end,
 	},

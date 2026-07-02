@@ -1,6 +1,14 @@
--- ui: Navigation, diagnostics, display, notifications, etc (with the exception of the statusline, which is a part of mini.nvim)
+-- ui: Navigation, diagnostics, display, notifications, etc
 
 return {
+	-- ════════════════════════════════════════════════════════════════════════════
+	-- mini.icons -> Icons
+	-- ════════════════════════════════════════════════════════════════════════════
+	{
+		"nvim-mini/mini.icons",
+		version = false,
+		opts = {},
+	},
 	-- ════════════════════════════════════════════════════════════════════════════
 	-- noice -> Use floating windows and popups for search, the command line, etc.
 	-- ════════════════════════════════════════════════════════════════════════════
@@ -29,9 +37,59 @@ return {
 		},
 		config = function(_, opts)
 			local noice = require("noice")
-			local palette = require("catppuccin.palettes").get_palette("mocha")
 			noice.setup(opts)
 		end,
+	},
+	-- ════════════════════════════════════════════════════════════════════════════
+	-- mini.statusline -> Custom statusline at the bottom of editor
+	-- ════════════════════════════════════════════════════════════════════════════
+	{
+		"nvim-mini/mini.statusline",
+		version = false,
+		dependencies = {
+			"nvim-mini/mini.icons",
+		},
+		opts = {
+			content = {
+				active = function()
+					local trunc_width = 140
+					local is_truncated = MiniStatusline.is_truncated(trunc_width)
+					local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = trunc_width })
+					local search = MiniStatusline.section_searchcount({ trunc_width = trunc_width })
+
+					local path = vim.fn.expand("%:p")
+					local root = vim.fs.root(0, ".git")
+					if path == "" then
+						path = "[No Name]"
+					elseif root then
+						path = path:sub(#root + 2)
+					else
+						path = vim.fn.fnamemodify(path, ":~:.")
+					end
+
+					if is_truncated then
+						path = vim.fn.pathshorten(path)
+					end
+
+					local modified = vim.bo.modified and "●" or ""
+					local reg = vim.fn.reg_recording()
+					local recording = reg ~= "" and ("Recording macro to register " .. reg) or ""
+					local location = is_truncated and "%l/%L" or "Line %l of %L"
+
+					return MiniStatusline.combine_groups({
+						{ hl = mode_hl, strings = { mode:lower() } },
+						"%<",
+						{ hl = "MiniStatuslineFilename", strings = { path } },
+						{ hl = "MiniStatuslineModified", strings = { modified } },
+						{ hl = "MiniStatuslineRecording", strings = { recording } },
+						"%=",
+						{ hl = mode_hl, strings = { search, location } },
+					})
+				end,
+				inactive = nil,
+			},
+			use_icons = true,
+		},
 	},
 	-- ════════════════════════════════════════════════════════════════════════════
 	-- neoscroll -> Add scroll animation on <C-u> and <C-d>
@@ -92,41 +150,13 @@ return {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
-		---@type snacks.Config
 		opts = {
-			bigfile = { enabled = false },
-
 			-- ════════════════════════════════════════════════════════════════════════════
 			-- dashboard -> Custom startup screen.
 			-- ════════════════════════════════════════════════════════════════════════════
 			dashboard = {
 				enabled = true,
-				config = function()
-					local palette = require("catppuccin.palettes").get_palette("mocha")
-					local lavender = palette.lavender
-					local bg = palette.base
-
-					local function set(name)
-						vim.api.nvim_set_hl(0, name, { fg = lavender, bg = bg })
-					end
-
-					set("SnacksDashboardNormal")
-					set("SnacksDashboardHeader")
-					set("SnacksDashboardFooter")
-					set("SnacksDashboardIcon")
-					set("SnacksDashboardDesc")
-					set("SnacksDashboardKey")
-					set("SnacksDashboardDir")
-					set("SnacksDashboardFile")
-				end,
 				preset = {
-					-- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
-					---@type fun(cmd:string, opts:table)|nil
-					pick = nil,
-					-- Used by the `keys` section to show keymaps.
-					-- Set your custom keymaps here.
-					-- When using a function, the `items` argument are the default keymaps.
-					---@type snacks.dashboard.Item[]
 					keys = {
 						{
 							icon = " ",
@@ -175,7 +205,6 @@ return {
 					},
 				},
 			},
-			explorer = { enabled = false },
 			-- ════════════════════════════════════════════════════════════════════════════
 			-- image -> open images in editor
 			-- ════════════════════════════════════════════════════════════════════════════
@@ -189,15 +218,6 @@ return {
 					max_height = 40,
 				},
 			},
-			indent = { enabled = false },
-			input = { enabled = false },
-			picker = { enabled = false },
-			notifier = { enabled = false },
-			quickfile = { enabled = false },
-			scope = { enabled = false },
-			scroll = { enabled = false },
-			statuscolumn = { enabled = false },
-			words = { enabled = false },
 		},
 	},
 	-- ════════════════════════════════════════════════════════════════════════════
