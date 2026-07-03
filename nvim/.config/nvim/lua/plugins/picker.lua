@@ -8,7 +8,10 @@ return {
 	event = "VimEnter",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope-fzf-native.nvim",
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
 		"nvim-telescope/telescope-ui-select.nvim",
 		"nvim-mini/mini.icons",
 	},
@@ -47,15 +50,15 @@ return {
 					path = vim.fn.fnamemodify(path, ":~:.")
 				end
 				local path_string = string.format("%s\t\t(%s)", tail, path)
-				local highlights = {
-					{
-						{
-							#path,
-						},
-						"Comment",
-					},
-				}
-				return path_string, highlights
+				-- local highlights = {
+				-- 	{
+				-- 		{
+				-- 			#path,
+				-- 		},
+				-- 		"Comment",
+				-- 	},
+				-- }
+				return path_string
 			end,
 			layout_strategy = "vertical",
 			layout_config = {
@@ -98,6 +101,8 @@ return {
 				only_sort_text = true,
 			},
 			keymaps = {},
+			diagnostics = {},
+			oldfiles = {},
 		},
 		extensions = {
 			fzf = {
@@ -138,6 +143,8 @@ return {
 		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch for current [W]ord" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+		vim.keymap.set("n", "<leader>sr", builtin.oldfiles, { desc = "[S]earch [R]ecent Files" })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 		vim.keymap.set(
 			"n",
@@ -166,11 +173,4 @@ return {
 			})
 		end, { desc = "[S]earch [T]mux config files" })
 	end,
-	-- ════════════════════════════════════════════════════════════════════════════
-	-- telescope-fzf-native -> Replaces telescope's default sorter with fzf
-	-- ════════════════════════════════════════════════════════════════════════════
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-	},
 }

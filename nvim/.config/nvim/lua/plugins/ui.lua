@@ -225,7 +225,7 @@ return {
 	-- ════════════════════════════════════════════════════════════════════════════
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons",},
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {},
@@ -290,11 +290,9 @@ return {
 	-- indent-blankline -> Draw vertical lines for each indent
 	-- ════════════════════════════════════════════════════════════════════════════
 	{
-		{
-			"lukas-reineke/indent-blankline.nvim",
-			main = "ibl",
-			opts = {},
-		},
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
 	},
 	-- ════════════════════════════════════════════════════════════════════════════
 	-- todo-comments -> Highlight todo, notes, etc in comments

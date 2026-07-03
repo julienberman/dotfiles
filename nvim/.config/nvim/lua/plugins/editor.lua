@@ -7,29 +7,22 @@ return {
 	{
 		"nvim-mini/mini.ai",
 		version = false,
-		opts = {
-			n_lines = 500,
-			custom_textobjects = {
-				-- Define `vaf` and `vif` -> around / in "function"
-				f = require("mini.ai").gen_spec.treesitter({
-					a = "@function.outer",
-					i = "@function.inner",
-				}),
-				-- Define `vae` and `vie` -> around / in "expression"
-				e = require("mini.ai").gen_spec.treesitter({
-					a = {
-						"@function.outer",
-						"@conditional.outer",
-						"@loop.outer",
-					},
-					i = {
-						"@function.inner",
-						"@conditional.inner",
-						"@loop.inner",
-					},
-				}),
-			},
-		},
+		opts = function()
+			local ai = require("mini.ai")
+			return {
+				n_lines = 500,
+				custom_textobjects = {
+					f = ai.gen_spec.treesitter({
+						a = "@function.outer",
+						i = "@function.inner",
+					}),
+					e = ai.gen_spec.treesitter({
+						a = { "@function.outer", "@conditional.outer", "@loop.outer" },
+						i = { "@function.inner", "@conditional.inner", "@loop.inner" },
+					}),
+				},
+			}
+		end,
 	},
 	-- ════════════════════════════════════════════════════════════════════════════
 	-- mini.surround -> add, delete, and replace surrounding characters
