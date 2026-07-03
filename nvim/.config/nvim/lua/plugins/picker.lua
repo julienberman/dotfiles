@@ -18,6 +18,7 @@ return {
 				hide_on_startup = true,
 				treesitter = true,
 			},
+			hidden = true,
 			initial_mode = "normal",
 			selection_strategy = "reset",
 			sorting_strategy = "ascending",

@@ -11,12 +11,12 @@ return {
 			n_lines = 500,
 			custom_textobjects = {
 				-- Define `vaf` and `vif` -> around / in "function"
-				f = spec_treesitter({
+				f = require("mini.ai").gen_spec.treesitter({
 					a = "@function.outer",
 					i = "@function.inner",
 				}),
 				-- Define `vae` and `vie` -> around / in "expression"
-				e = spec_treesitter({
+				e = require("mini.ai").gen_spec.treesitter({
 					a = {
 						"@function.outer",
 						"@conditional.outer",
@@ -128,5 +128,17 @@ return {
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		opts = {},
+	},
+	-- ════════════════════════════════════════════════════════════════════════════
+	-- vimtex -> Edit LaTeX files.
+	-- ════════════════════════════════════════════════════════════════════════════
+	{
+		"lervag/vimtex",
+		lazy = false,
+		init = function()
+			vim.g.vimtex_view_method = "sioyek"
+			vim.g.vimtex_quickfix_mode = 0
+			vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
+		end,
 	},
 }

@@ -9,8 +9,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		"git",
 		"clone",
 		"--filter=blob:none",
-		lazyrepo,
 		"--branch=stable",
+		lazyrepo,
 		lazypath,
 	})
 	if vim.v.shell_error ~= 0 then
