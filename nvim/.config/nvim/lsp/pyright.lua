@@ -1,4 +1,4 @@
--- Python language server
+-- pyright: Override settings for pyright imported from nvim-lspconfig
 
 return {
 	cmd = { "pyright-langserver", "--stdio" },

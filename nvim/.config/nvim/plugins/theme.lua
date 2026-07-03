@@ -2,7 +2,6 @@
 
 return {
 	"catppuccin/nvim",
-	-- must load before other plugins
 	priority = 1000,
 	opts = {
 		flavour = "mocha",
