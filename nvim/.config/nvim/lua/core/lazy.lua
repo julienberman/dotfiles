@@ -1,3 +1,5 @@
+-- lazy: Install lazy.nvim and install plugins
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 -- Check if lazy.nvim is installed. If not, clone repo

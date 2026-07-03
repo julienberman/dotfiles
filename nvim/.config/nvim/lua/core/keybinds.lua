@@ -1,3 +1,7 @@
+-- Set <space> as the leader key. Must occur before plugins are loaded.
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Clear highlights on search when press esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 

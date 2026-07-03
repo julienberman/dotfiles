@@ -1,6 +1,9 @@
--- Adds git related signs to the gutter and utilities for managing changes
+-- git: All git related plugins
 
 return {
+	-- ════════════════════════════════════════════════════════════════════════════
+	-- neogit -> git interface for neovim
+	-- ════════════════════════════════════════════════════════════════════════════
 	{
 		"NeogitOrg/neogit",
 		lazy = true,
@@ -22,12 +25,6 @@ return {
 			commit_editor = {
 				kind = "floating",
 				show_staged_diff = false,
-				-- Accepted values:
-				-- "split" to show the staged diff below the commit editor
-				-- "vsplit" to show it to the right
-				-- "split_above" Like :top split
-				-- "vsplit_left" like :vsplit, but open to the left
-				-- "auto" "vsplit" if window would have 80 cols, otherwise "split"
 				staged_diff_split_kind = "split",
 				spell_check = true,
 			},
@@ -77,6 +74,9 @@ return {
 			{ "<leader>gl", "<cmd>Neogit log<cr>", desc = "Show git log" },
 		},
 	},
+	-- ════════════════════════════════════════════════════════════════════════════
+	-- diffview -> easily compare working tree to index
+	-- ════════════════════════════════════════════════════════════════════════════
 	{
 		"sindrets/diffview.nvim",
 		cmd = {
