@@ -21,8 +21,7 @@ return {
 				hide_on_startup = true,
 				treesitter = true,
 			},
-			hidden = true,
-			initial_mode = "normal",
+			initial_mode = "insert",
 			selection_strategy = "reset",
 			sorting_strategy = "ascending",
 			vimgrep_arguments = {
@@ -39,9 +38,12 @@ return {
 			file_ignore_patterns = { "%.git/." },
 			path_display = function(opts, path)
 				local utils = require("telescope.utils")
-				local path = utils.path_expand(path)
-				local tail = utils.path_tail(path)
+				local path_trunc_len = 25
+				local filename_len = 32
+				local path = vim.fn.fnamemodify(utils.path_expand(path), ":p")
+				local filename = utils.path_tail(path)
 				local root = vim.fs.root(0, ".git")
+
 				if path == "" then
 					path = "[No Name]"
 				elseif root then
@@ -49,7 +51,13 @@ return {
 				else
 					path = vim.fn.fnamemodify(path, ":~:.")
 				end
-				local path_string = string.format("%s\t\t(%s)", tail, path)
+
+				if #path >= path_trunc_len then
+					path = vim.fn.pathshorten(path, 2)
+				end
+
+				local path_string =
+					string.format("%-" .. filename_len .. "." .. filename_len .. "s  %s", filename, path)
 				-- local highlights = {
 				-- 	{
 				-- 		{
@@ -62,15 +70,31 @@ return {
 			end,
 			layout_strategy = "vertical",
 			layout_config = {
-				width = function(_, max_columns, _)
-					return math.min(max_columns, 80)
-				end,
-				height = function(_, _, max_lines)
-					return math.min(max_lines, 15)
-				end,
-				prompt_position = "top",
-				preview_cutoff = 1,
-				preview_height = 0.4,
+				vertical = {
+					width = function(_, max_columns, _)
+						return math.min(max_columns, 90)
+					end,
+					height = function(_, _, max_lines)
+						return math.min(max_lines, 20)
+					end,
+					prompt_position = "top",
+					preview_cutoff = 1,
+					preview_height = 0.4,
+				},
+				horizontal = {
+					width = function(_, max_columns, _)
+						return math.min(max_columns, 120)
+					end,
+					height = function(_, _, max_lines)
+						return math.min(max_lines, 25)
+					end,
+					preview_cutoff = 120,
+					prompt_position = "top",
+					preview_width = function(_, max_columns, _)
+						-- return 0.5 * math.min(max_columns, 100) / 3
+						return 80
+					end,
+				},
 			},
 			border = true,
 		},
@@ -78,6 +102,7 @@ return {
 			find_files = {
 				prompt_title = "Find file...",
 				follow = true,
+				hidden = true,
 			},
 			buffers = {
 				prompt_title = "Find open buffer...",
@@ -86,23 +111,31 @@ return {
 						["d"] = "delete_buffer",
 					},
 				},
+				initial_mode = "normal",
 			},
 			current_buffer_fuzzy_find = {
 				prompt_title = "Fuzzy search current buffer...",
 				previewer = true,
+				layout_strategy = "horizontal",
 			},
 			live_grep = {
 				prompt_title = "Find string in files...",
 				previewer = true,
 				only_sort_text = true,
+				layout_strategy = "horizontal",
 			},
 			grep_string = {
 				previewer = true,
 				only_sort_text = true,
+				layout_strategy = "horizontal",
 			},
 			keymaps = {},
 			diagnostics = {},
 			oldfiles = {},
+			help_tags = {
+				previewer = true,
+				layout_strategy = "horizontal",
+			},
 		},
 		extensions = {
 			fzf = {
@@ -117,13 +150,6 @@ return {
 					initial_mode = "normal",
 					sorting_strategy = "ascending",
 					layout_strategy = "horizontal",
-					layout_config = {
-						horizontal = {
-							width = 0.5,
-							height = 0.4,
-							preview_width = 0.6,
-						},
-					},
 				}),
 			},
 		},
