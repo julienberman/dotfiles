@@ -426,4 +426,30 @@ return {
 			vim.g.loaded_netrwPlugin = 1
 		end,
 	},
+	-- ════════════════════════════════════════════════════════════════════════════
+	-- arrow -> Buffer management
+	-- ════════════════════════════════════════════════════════════════════════════
+	{
+		"otavioschwanck/arrow.nvim",
+		dependencies = {
+			"echasnovski/mini.icons",
+		},
+		opts = {
+			show_icons = true,
+			leader_key = ";",
+			buffer_leader_key = "m",
+			mappings = {
+				edit = "i",
+				delete_mode = "d",
+				clear_all_items = "C",
+				toggle = "s",
+				open_vertical = "v",
+				open_horizontal = "h",
+				quit = "q",
+				remove = "x",
+				next_item = "]",
+				prev_item = "[",
+			},
+		},
+	},
 }

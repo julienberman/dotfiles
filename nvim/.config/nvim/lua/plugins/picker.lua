@@ -112,6 +112,7 @@ return {
 					},
 				},
 				initial_mode = "normal",
+				sort_mru = true,
 			},
 			current_buffer_fuzzy_find = {
 				prompt_title = "Fuzzy search current buffer...",
@@ -171,7 +172,7 @@ return {
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		vim.keymap.set("n", "<leader>sr", builtin.oldfiles, { desc = "[S]earch [R]ecent Files" })
-		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[S]earch open [B]uffers" })
 		vim.keymap.set(
 			"n",
 			"<leader>/",

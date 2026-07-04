@@ -125,15 +125,9 @@ return {
 							["d"] = actions.delete_buffer,
 						},
 					},
+					sort_mru = true,
 					previewer = false,
 					initial_mode = "normal",
-					-- theme = "dropdown",
-					layout_config = {
-						height = 0.4,
-						width = 0.6,
-						prompt_position = "top",
-						preview_cutoff = 120,
-					},
 				},
 				current_buffer_fuzzy_find = {
 					previewer = true,
