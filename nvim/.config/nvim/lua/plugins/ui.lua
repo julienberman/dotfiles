@@ -58,6 +58,7 @@ return {
 					local search = MiniStatusline.section_searchcount({ trunc_width = trunc_width })
 
 					local path = vim.fn.expand("%:p")
+					local filename = vim.fn.expand("%:t")
 					local root = vim.fs.root(0, ".git")
 					if path == "" then
 						path = "[No Name]"
@@ -79,10 +80,11 @@ return {
 					return MiniStatusline.combine_groups({
 						{ hl = mode_hl, strings = { mode:lower() } },
 						"%<",
-						{ hl = "MiniStatuslineFilename", strings = { path } },
+						{ hl = "MiniStatuslineFilename", strings = { filename } },
 						{ hl = "MiniStatuslineModified", strings = { modified } },
 						{ hl = "MiniStatuslineRecording", strings = { recording } },
 						"%=",
+						{ hl = "MiniStatuslinePath", strings = { path } },
 						{ hl = mode_hl, strings = { search, location } },
 					})
 				end,
@@ -225,7 +227,7 @@ return {
 	-- ════════════════════════════════════════════════════════════════════════════
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons",},
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {},

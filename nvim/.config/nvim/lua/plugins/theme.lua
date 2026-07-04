@@ -16,6 +16,7 @@ return {
 				MiniStatuslineModeNormal = { fg = colors.base, bg = colors.lavender, bold = true },
 				MiniStatuslineModeInsert = { fg = colors.base, bg = colors.green, bold = true },
 				MiniStatuslineFilename = { fg = colors.text, bg = colors.surface0 },
+				MiniStatuslinePath = { fg = colors.text, bg = colors.surface0 },
 				MiniStatuslineModified = { fg = colors.lavender, bg = colors.surface0, bold = true },
 				MiniStatuslineRecording = { fg = colors.red, bg = colors.surface0, bold = true },
 				SnacksDashboardNormal = { fg = colors.lavender, bg = colors.base },
