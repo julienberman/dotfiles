@@ -3,12 +3,15 @@
 Terminal multiplexer
 
 ### Installation
+- Macos
+```
+brew install tmux
+```
 
 - Archlinux:
 ```
 sudo pacman -S tmux 
 ```
-- Macos
 ```
 ```
 

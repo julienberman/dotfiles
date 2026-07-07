@@ -26,13 +26,13 @@ brew install tree-sitter-cli    # Required for treesitter language parsers
 #### MacOS
 
 ```bash
-# TODO
+brew install --cask font-caskaydia-cove-nerd-font
 ```
 
 #### ArchLinux
 
 ```bash
-# TODO
+sudo pacman -S ttf-cascadia-code-nerd
 ```
 
 ### Language toolchains
