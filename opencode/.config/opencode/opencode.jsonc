@@ -30,6 +30,14 @@
             "type": "local",
             "command": ["railway", "mcp"],
             "enabled": true
+        },
+        "snowflake": {
+            "type": "remote",
+            "url": "https://app.mintmcp.com/s/g_5p7ZEYG4iuMhd4nhCrgLnB/mcp",
+            "enabled": true,
+            "headers": {
+                "Authorization": "gkey_08CwyeUoB8u4tCdiHXAE6v:UhkMf7nJ4IpbTvlKK3j6w7lc2UTNkmahi9-mF0OdeKY"
+            }
         }
     }
 }

@@ -231,6 +231,7 @@ return {
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {},
+		enabled = false,
 	},
 	-- ════════════════════════════════════════════════════════════════════════════
 	-- vim-python-pep8-indent -> Modify indentation to conform to PEP8 style
