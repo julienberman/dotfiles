@@ -20,10 +20,10 @@ return {
 			ensure_installed = {
 				-- language servers (must be Mason package names)
 				"lua-language-server",
+				"ruby-lsp",
 				"pyright",
 				-- formatters
 				"stylua",
-				"gofumpt",
 				"ruff",
 				-- linters
 				"mypy",
@@ -40,6 +40,7 @@ return {
 			vim.lsp.enable({
 				"lua_ls",
 				"pyright",
+				"ruby_lsp",
 			})
 		end,
 	},
