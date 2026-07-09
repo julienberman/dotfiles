@@ -1,20 +1,30 @@
-### Starship config
+## Starship config
 
-Make sure that starship is initialized in terminal.
+Custom shell prompt.
 
-
-~/.bashrc:
+### System dependencies
+```bash
+brew install starship
 ```
+
+### Initialization
+
+Add the following commands to either the `~/.bashrc` or `~/.zshrc` files.
+
+To ensure that starship is initialized in terminal:
+```bash
 eval "$(starship init bash)"
 ```
-
-~/.zshrc:
-```
+or
+```bash
 eval "$(starship init zsh)"
 ```
-
-To ensure that the conda environment does not display in the terminal prompt twice, add this command to either ~/.bashrc or ~/.zshrc:
 ```
+```
+
+To ensure that the conda environment does not display in the terminal prompt twice:
+
+```bash
 conda config --set changeps1 false
 ```
 
