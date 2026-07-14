@@ -15,12 +15,34 @@ return {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
+		keys = {
+			{
+				"<C-k>",
+				function()
+					require("noice.lsp").signature()
+				end,
+				mode = "i",
+				desc = "Show signature help",
+			},
+		},
 		dependencies = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
 		},
 		opts = {
 			views = {
+				hover = {
+					border = {
+						padding = { 0, 1 },
+						style = "rounded",
+					},
+					size = {
+						height = "auto",
+						max_height = 20,
+						max_width = 100,
+						width = "auto",
+					},
+				},
 				popup = {
 					position = {
 						row = "65%",
@@ -32,6 +54,17 @@ return {
 						row = "65%",
 						col = "50%",
 					},
+				},
+			},
+			lsp = {
+				hover = {
+					view = "hover",
+				},
+				signature = {
+					auto_open = {
+						enabled = false,
+					},
+					view = "hover",
 				},
 			},
 			routes = {

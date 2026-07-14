@@ -19,5 +19,10 @@ return {
 		config.settings = config.settings or {}
 		config.settings.python = config.settings.python or {}
 		config.settings.python.pythonPath = python_path
+		config.settings.python.analysis = {
+			diagnosticSeverityOverrides = {
+				reportUnusedImport = "warning",
+			},
+		}
 	end,
 }
