@@ -379,7 +379,7 @@ return {
 				socket_name = "default",
 				target_pane = "{right-of}", -- sends to pane on the right
 			}
-			vim.g.slime_dont_ask_default = 0
+			vim.g.slime_dont_ask_default = 1
 			vim.g.slime_preserve_curpos = 1
 			vim.g.slime_python_ipython = 1
 			-- vim.g.slime_bracketed_paste = 1
