@@ -1,7 +1,7 @@
 ---
 name: explain 
 description: Answers conceptual and architectural questions about the codebase
-model: openai/gpt-5.6
+model: openai/gpt-5.6-sol
 type: agent
 variant: medium
 temperature: 0.1
