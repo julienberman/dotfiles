@@ -124,8 +124,11 @@ Here are notes to myself for how to use git more effectively.
 - `git push [remote] [branch]` -> send local commits on [branch] to remote [branch]
 
 8) Merge conflicts
-
-
-
+- Open `neogit`
+- Execute `dw` on the conflicted file in the 'Unstaged changes' area
+- Edit the center conflict window
+- Save the de-conflicted file
+- Execute `s` to stage the file in the 'Unstaged changes' area
+- Execute `cc` to commiit staged files
 
 
