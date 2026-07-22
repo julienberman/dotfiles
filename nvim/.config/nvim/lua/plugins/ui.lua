@@ -32,15 +32,21 @@ return {
 		opts = {
 			views = {
 				hover = {
+					relative = "editor",
+					anchor = "NE",
+					position = {
+						row = "10%",
+						col = "100%",
+					},
 					border = {
 						padding = { 0, 1 },
 						style = "rounded",
 					},
 					size = {
 						height = "auto",
-						max_height = 20,
-						max_width = 100,
 						width = "auto",
+						max_height = 20,
+						max_width = 40,
 					},
 				},
 				popup = {
