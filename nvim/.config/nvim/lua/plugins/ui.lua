@@ -32,12 +32,6 @@ return {
 		opts = {
 			views = {
 				hover = {
-					relative = "editor",
-					anchor = "NE",
-					position = {
-						row = "10%",
-						col = "100%",
-					},
 					border = {
 						padding = { 0, 1 },
 						style = "rounded",
@@ -61,11 +55,17 @@ return {
 						col = "50%",
 					},
 				},
+				split = {
+					position = "bottom",
+					size = "50%",
+					enter = true,
+					win_options = {
+						wrap = true,
+					},
+				},
 			},
 			lsp = {
-				hover = {
-					view = "hover",
-				},
+				hover = { view = "split" },
 				signature = {
 					auto_open = {
 						enabled = false,
@@ -132,7 +132,9 @@ return {
 						{ hl = mode_hl, strings = { search, location } },
 					})
 				end,
-				inactive = nil,
+                inactive = function()
+                    return MiniStatusline.active()
+                end,
 			},
 			use_icons = true,
 		},

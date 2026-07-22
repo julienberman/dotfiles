@@ -126,9 +126,17 @@ Here are notes to myself for how to use git more effectively.
 8) Merge conflicts
 - Open `neogit`
 - Execute `dw` on the conflicted file in the 'Unstaged changes' area
-- Edit the center conflict window
+- Edit the center conflict window with `<leader>co`, `<leader>ct`, or `<leader>ca`
 - Save the de-conflicted file
 - Execute `s` to stage the file in the 'Unstaged changes' area
 - Execute `cc` to commiit staged files
+
+9) Rebasing to pull main into feature branch
+- Switch to source branch
+- `git rebase main`
+- Resolve rebase conflicts by opening neogit and resolving
+- `git rebase --continue` 
+- `git push --force-with-lease` to replace upstream feature branch with local feature branch
+
 
 

@@ -13,7 +13,6 @@ return {
 			return {
 				NoiceCmdlineIcon = { fg = colors.mauve },
 				NoiceCmdlinePopupBorder = { fg = colors.mauve },
-				MiniStatuslineModeNormal = { fg = colors.base, bg = colors.lavender, bold = true },
 				MiniStatuslineModeInsert = { fg = colors.base, bg = colors.green, bold = true },
 				MiniStatuslineFilename = { fg = colors.text, bg = colors.surface0 },
 				MiniStatuslinePath = { fg = colors.text, bg = colors.surface0 },
