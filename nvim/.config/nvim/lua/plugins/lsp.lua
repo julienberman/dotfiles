@@ -20,7 +20,7 @@ return {
 			ensure_installed = {
 				-- language servers (must be Mason package names)
 				"lua-language-server",
-				"ruby-lsp",
+				-- "ruby-lsp",
 				"pyright",
 				-- formatters
 				"stylua",

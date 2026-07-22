@@ -69,6 +69,7 @@ return {
 				"python",
 				"query",
 				"r",
+                "ruby",
 				"regex",
 				"vim",
 			}
