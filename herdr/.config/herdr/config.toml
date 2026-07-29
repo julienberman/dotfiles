@@ -5,13 +5,13 @@
 onboarding = false
 
 [theme]
-name="catppuccin-mocha"
+name = "catppuccin"
+auto_switch = false
 
-# [theme.custom]
-# panel_bg = "reset"
-# accent = "#f5c2e7"
-# red = "#ff6188"
-# green = "#a6e3a1"
+[theme.custom]
+accent = "#b4befe"
+panel_bg = "#181825"
+surface_dim = "#353749"
 
 [terminal]
 default_shell = "zsh"
@@ -39,24 +39,27 @@ help = "prefix+?"
 detach = "prefix+q"
 reload_config = "prefix+shift+r"
 rename_workspace = "prefix+r"
+close_workspace = "prefix+d"
 toggle_sidebar = "prefix+p"
 
 [ui]
 sidebar_width = 26
 sidebar_min_width = 18
 sidebar_max_width = 36
-sidebar_start_collapsed = false
+sidebar_start_collapsed = true
 
 # Collapsed sidebar presentation: "compact" keeps the narrow status rail, "hidden" uses zero width.
-sidebar_collapsed_mode = "compact"
+sidebar_collapsed_mode = "hidden"
 
 mouse_capture = true
 copy_on_select = true
+confirm_close = false
+prompt_new_tab_name = false
 pane_borders = true
 pane_gaps = false
 hide_tab_bar_when_single_tab = false
 agent_panel_sort = "spaces"
-# accent = "cyan"
+accent = "#f5c2e7"
 
 [ui.toast]
 delivery = "terminal"
