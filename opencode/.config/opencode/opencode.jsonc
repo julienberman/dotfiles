@@ -35,6 +35,11 @@
         "datadog": {
             "type": "remote",
             "url": "https://app.mintmcp.com/s/g_06B4geqJvwSnXvAXeaoZEF/mcp"
+        },
+        // Handles snowflake data
+        "snowflake": {
+            "type": "remote",
+            "url": "https://app.mintmcp.com/s/g_5p7ZEYG4iuMhd4nhCrgLnB/mcp"
         }
     }
 }
