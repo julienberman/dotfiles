@@ -30,6 +30,11 @@
             "type": "local",
             "command": ["railway", "mcp"],
             "enabled": true
+        },
+        // Handles session logs
+        "datadog": {
+            "type": "remote",
+            "url": "https://app.mintmcp.com/s/g_06B4geqJvwSnXvAXeaoZEF/mcp"
         }
     }
 }
