@@ -14,7 +14,7 @@
     },
     "plugin": [
         ["@plannotator/opencode@latest", {
-            "workflow": "plan-agent",
+            "workflow": "manual",
             "planningAgents": ["plan", "sisyphus"]
         }]
     ],
