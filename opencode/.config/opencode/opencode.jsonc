@@ -12,6 +12,7 @@
         "webfetch": "allow",
         "websearch": "allow"
     },
+    "plugin": ["@plannotator/opencode@latest"],
     "mcp": {
         // Fetches up-to-date docs for popular libraries
         "context7": {
