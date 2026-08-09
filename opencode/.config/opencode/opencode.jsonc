@@ -12,7 +12,12 @@
         "webfetch": "allow",
         "websearch": "allow"
     },
-    "plugin": ["@plannotator/opencode@latest"],
+    "plugin": [
+        ["@plannotator/opencode@latest", {
+            "workflow": "plan-agent",
+            "planningAgents": ["plan", "sisyphus"]
+        }]
+    ],
     "mcp": {
         // Fetches up-to-date docs for popular libraries
         "context7": {
