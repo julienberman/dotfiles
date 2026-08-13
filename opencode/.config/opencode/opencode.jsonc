@@ -51,7 +51,7 @@
         "metabase": {
             "type": "remote",
             "url": "https://app.mintmcp.com/s/g_6NcVquHm8oyTDaJlrTuUKI/mcp"
-        }
+        },
         // Feature flags
         "launch_darkly": {
             "type": "remote",
