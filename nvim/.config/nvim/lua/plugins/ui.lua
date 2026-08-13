@@ -132,9 +132,9 @@ return {
 						{ hl = mode_hl, strings = { search, location } },
 					})
 				end,
-                inactive = function()
-                    return MiniStatusline.active()
-                end,
+				inactive = function()
+					return MiniStatusline.active()
+				end,
 			},
 			use_icons = true,
 		},
@@ -352,6 +352,19 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			signs = false,
+			keywords = {
+				TODO = { color = "todo" },
+				FIX = { color = "fix" },
+				BUG = { color = "fix" },
+				HACK = { color = "hack" },
+				NOTE = { color = "note" },
+			},
+			colors = {
+				todo = { "TodoCommentTodo" },
+				fix = { "TodoCommentFix" },
+				hack = { "TodoCommentHack" },
+				note = { "TodoCommentNote" },
+			},
 		},
 	},
 	-- ════════════════════════════════════════════════════════════════════════════

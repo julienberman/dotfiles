@@ -26,6 +26,10 @@ return {
 				SnacksDashboardKey = { fg = colors.lavender, bg = colors.base },
 				SnacksDashboardDir = { fg = colors.lavender, bg = colors.base },
 				SnacksDashboardFile = { fg = colors.lavender, bg = colors.base },
+                TodoCommentTodo = { fg = colors.lavender },
+                TodoCommentFix = { fg = colors.red },
+                TodoCommentHack = { fg = colors.flamingo },
+                TodoCommentNote = { fg = colors.mauve },
 			}
 		end,
 	},
