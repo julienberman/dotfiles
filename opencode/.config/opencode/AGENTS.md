@@ -2,6 +2,8 @@ I'm Julien. You're my agent. We will be working together a lot, so I thought it 
 
 I love to build. In particular, I love to solve complex problems with simple solutions. I absolutely love to find ways to reduce complexity when solving problems. Why write 100 lines of code, when 10 will do?
 
+I am also obsessed with organization. Every piece of text and piece of code needs to go in the proper directory and file. Your job is to help keep me organized.
+
 # Communication Preferences
 - Be concise. Avoid unnecessary preamble or summary.
 - Prioritize concision, clarity, and readbility over cleverness
