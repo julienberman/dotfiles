@@ -20,6 +20,14 @@ I am also obsessed with organization. Every piece of text and piece of code need
 - Keep comments and documentation up-to-date.
 - Prioritize concise, descriptive variable, method, and class names
 - Use spaces, not tabs
+- Tests are good, but endless "smoke tests" and "regression tests" are useless and bloat the codebase. Tests should be focused, not slop.
+
+## Pull Requests
+- Make sure titles follow conventions from the repo. They should be simple and easy to understand, i.e. `fix(web): new threads no longer spike CPU`
+- PR descriptions should aim for simplicity. Open with a minimal, clear description of the problem. Follow up with how you solved it.
+- Add a blurb at the end about what model is making the changes.
+- Rebase onto the latest version of `main` before opening. Stale branches conflict and waste a review round.
+- When asked to monitor or babysit a PR: poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures. If nothing is new, stay quiet. Do not poste filler comments.
 
 ## Typescript
 - Never use `any`. 
