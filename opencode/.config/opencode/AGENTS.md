@@ -1,47 +1,34 @@
-# General rules
+I'm Julien. You're my agent. We will be working together a lot, so I thought it could be worth introducing myself. I am an economist who cares deeply about data, software, and attention to detail. I am extremly precise in my thinking. I expect you to be as well.
 
-## Communication
+I love to build. In particular, I love to solve complex problems with simple solutions. I absolutely love to find ways to reduce complexity when solving problems. Why write 100 lines of code, when 10 will do?
+
+# Communication Preferences
 - Be concise. Avoid unnecessary preamble or summary.
-- Ask clarifying questions before making assumptions on ambiguous requests.
+- Prioritize concision, clarity, and readbility over cleverness
+- Questions are read only.A question is a request for an answer, not for changes. If a question begins with "why does", "how hard would it be", "what is the purpose", "can X do Y", "should we", or otherwise asks rather than instructs: answer it, and do not edit any files
+- Even if the answer is obvious and the change is trivial, still answer first and offer the change. Ask before making it.
 
-## General style
-- Prioritize oncision, clarity, and readbility over cleverness
-- All syntax should be standardized
-
-## File organization
-- Meta: sections should be separated by two newlines. Subsections should be separated by a single newline
-- Section 1: Imports
-    - Subsection A: Standard library imports, alphabetized 
-    - Subsection B: Third party imports, alphabetized
-    - Subection C: Local project-specific dependencies, alphabetized (e.g. `from source.lib.save_data import save_data` or `source("source/lib/helpers/plot.R")`
-- Section 2: Main function
-    - Subsection A: declare variables (e.g. constants, input/output directory paths)
-    - Subsection B: read data (if applicable)
-    - Subsection C: call processing functions 
-- Section 3: Processing functions 
-    - In order of when they are called by `main`
-- Section 4: Main method called. No other code should go here.
-
-## Formatting
-### General
-- CRITICAL: DO NOT INCLUDE INLINE COMMENTS OR DOCSTRINGS
-- Avoid defining helper functions within the scope of a parent function
-
-### Naming 
-- Prioritize concise, descriptive names
-- All variables, dataframe variables, functions, and file names in snake_case
-- All class names in CamelCase
-
-# Python project rules
+# Coding preferences
 
 ## General
-- CRITICAL: Adhere to PEP8 style wherever possible
-- Preference: Use spaces, not tabs
-- Preference: Limit all lines to a maximum of 79 characters
-- Preference: The closing brace/bracket/parenthesis on multiline constructs should line up under the first character of the line that starts the multiline construct
+- Keep things simple. Channel "yagni" energy unless told otherwise.
+- Try to reduce code and bloat, where possible
+- Be careful with destructive actions that are not explicitly requested by the user.
+- Avoid excessive comments. Comments should only be used above class and method definitions to clarify functionality, and only if necessary. They should be very concise.
+- Keep comments and documentation up-to-date.
+- Prioritize concise, descriptive variable, method, and class names
+- Use spaces, not tabs
 
-## Pandas syntax
-- Prioritize concise and reable syntax
+## Typescript
+- Never use `any`. 
+- Write TypeScript in a way that Matt Pocock would be proud.
+
+## Python
+- Adhere to PEP8 style wherever possible
+- Avoid excessive subfunctions and helper functions. Each function should accomplish a cohesive task.
+- All directory and paths should be instantiated as `Path` objects. If a service only accepts paths as strings, they should be converted when necessary.
+
+### Pandas
 - Utilize method chaining wherever possible
     - .assign(...) for mutating variables
     - .groupby(...).agg({...}) for group-level aggregation
@@ -51,10 +38,8 @@
     - .drop(columns=[...]) for removing columns
     - .select(columns=[...]) for selecting columns (pyjanitor)
     - .sort_values(by=[...]) for sorting
-- Avoid excessive subfunctions and helper functions. Each function should accomplish a cohesive task
 
 Example:
-
 ```
 def clean_congress_twitter(df):
     df_clean = (
@@ -71,13 +56,8 @@ def clean_congress_twitter(df):
     )
     return df_clean
 ```
-## File loading and saving
-- Be sure to create output directories / check if they already exist.
-- All directory and paths should be instantiated as `Path` objects. If a service only accepts paths as strings, they should be converted when necessary.
 
-# R project rules
-
-## Syntax
+## R
 - Use tidyverse syntax wherever possible
 - Use method chaining with `%>%` wherever possible
 
@@ -92,9 +72,8 @@ Example:
 ```
 
 
-# Latex rules
-
-## Tables
+## Latex
+### Tables
 - All tables should use the `booktabs` package
 - Every table should be structured as follows (order matters):
     - Caption
@@ -106,7 +85,7 @@ Example:
     - close tabular
     - open minipage with width equal to `linewidth` for table notes
 
-## Figures
+### Figures
 - Every figure should be structured as follows:
     - Caption
     - Label (of the form `fig:[figure_name]`)
