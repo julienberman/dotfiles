@@ -276,8 +276,9 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
-		opts = {},
-		enabled = false,
+		opts = {
+		    enabled = false,
+        },
 	},
 	-- ════════════════════════════════════════════════════════════════════════════
 	-- vim-python-pep8-indent -> Modify indentation to conform to PEP8 style
