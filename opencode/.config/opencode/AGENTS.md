@@ -16,6 +16,7 @@ I am also obsessed with organization. Every piece of text and piece of code need
 - Keep things simple. Channel "yagni" energy unless told otherwise.
 - Try to reduce code and bloat, where possible
 - Be careful with destructive actions that are not explicitly requested by the user.
+- If the development environment uses docker containers, make sure to execute all commands and tests inside the appropriate container. Avoid running code on the host machine.
 - Avoid excessive comments. Comments should only be used above class and method definitions to clarify functionality, and only if necessary. They should be very concise.
 - Keep comments and documentation up-to-date.
 - Prioritize concise, descriptive variable, method, and class names
@@ -23,7 +24,7 @@ I am also obsessed with organization. Every piece of text and piece of code need
 - Tests are good, but endless "smoke tests" and "regression tests" are useless and bloat the codebase. Tests should be focused, not slop.
 
 ## Pull Requests
-- Make sure titles follow conventions from the repo. They should be simple and easy to understand, i.e. `fix(web): new threads no longer spike CPU`
+- Make sure titles follow conventions from the repo. Titles should be simple and easy to understand, i.e. `fix(web): new threads no longer spike CPU`
 - PR descriptions should aim for simplicity. Open with a minimal, clear description of the problem. Follow up with how you solved it.
 - Add a blurb at the end about what model is making the changes.
 - Rebase onto the latest version of `main` before opening. Stale branches conflict and waste a review round.
