@@ -24,10 +24,10 @@ version_check = true
 
 [keys]
 prefix = "ctrl+a"
-focus_pane_left  = "ctrl+h"
-focus_pane_down  = "ctrl+j"
-focus_pane_up    = "ctrl+k"
-focus_pane_right = "ctrl+l"
+# focus_pane_left  = "ctrl+h"
+# focus_pane_down  = "ctrl+j"
+# focus_pane_up    = "ctrl+k"
+# focus_pane_right = "ctrl+l"
 split_horizontal = "prefix+h"
 split_vertical    = "prefix+v"
 new_tab   = "prefix+n"
@@ -44,6 +44,30 @@ reload_config = "prefix+shift+r"
 rename_workspace = "prefix+r"
 close_workspace = "prefix+d"
 toggle_sidebar = "prefix+p"
+
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "herdr-navigator.left"
+description = "Navigate left through Neovim and Herdr"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "herdr-navigator.down"
+description = "Navigate down through Neovim and Herdr"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "herdr-navigator.up"
+description = "Navigate up through Neovim and Herdr"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "herdr-navigator.right"
+description = "Navigate right through Neovim and Herdr"
 
 [ui]
 sidebar_width = 26
