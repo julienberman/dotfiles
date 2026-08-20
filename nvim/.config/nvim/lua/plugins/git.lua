@@ -90,7 +90,6 @@ return {
 				listing_style = "tree",
 				win_config = {
 					position = "left",
-					width = 20,
 				},
 			},
 		},
