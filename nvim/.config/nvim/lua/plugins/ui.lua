@@ -392,7 +392,7 @@ return {
 	-- ════════════════════════════════════════════════════════════════════════════
 	-- nvim-herdr-navigator -> Use vim bindings to navigate between neovim and herdr
 	-- ════════════════════════════════════════════════════════════════════════════
-    return {
+    {
         "kaar/nvim-herdr-navigator",
         lazy = false,
     },
