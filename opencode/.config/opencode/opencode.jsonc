@@ -56,6 +56,10 @@
         "launch_darkly": {
             "type": "remote",
             "url": "https://app.mintmcp.com/s/g_1V0uw7wkif6sdGY0qlCwiU/mcp"
+        },
+        "semaphore": {
+            "type": "remote",
+            "url": "https://app.mintmcp.com/s/g_6H2LhqCE3rSMnYqwhBK1by/mcp"
         }
     }
 }
