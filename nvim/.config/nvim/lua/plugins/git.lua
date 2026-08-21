@@ -94,4 +94,16 @@ return {
 			},
 		},
 	},
+	{
+		"lewis6991/gitsigns.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {},
+		keys = {
+			{
+				"<leader>gb",
+				"<cmd>Gitsigns blame_line<cr>",
+				desc = "Show git blame for current line",
+			},
+		},
+	},
 }
