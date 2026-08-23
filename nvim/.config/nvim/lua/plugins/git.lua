@@ -11,19 +11,19 @@ return {
 			-- diff view
 			"sindrets/diffview.nvim",
 			-- Custom log pager
-			"m00qek/baleia.nvim",
-			-- Picker
+            "m00qek/baleia.nvim",
+            -- Picker
 			"nvim-telescope/telescope.nvim",
 		},
 		cmd = "Neogit",
 		opts = {
-			kind = "floating",
+			kind = "vsplit",
 			integrations = {
 				diffview = true,
 				telescope = false,
 			},
 			commit_editor = {
-				kind = "floating",
+				kind = "replace",
 				show_staged_diff = false,
 				staged_diff_split_kind = "split",
 				spell_check = true,
