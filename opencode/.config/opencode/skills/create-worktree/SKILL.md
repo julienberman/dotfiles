@@ -58,7 +58,7 @@ create_json="$(
     --cwd "$root" \
     --branch "$branch" \
     --label "$branch" \
-    --focus \
+    --no-focus \
     --json
 )"
 ```
@@ -72,33 +72,23 @@ create_json="$(
     --branch "$branch" \
     --base "$base" \
     --label "$branch" \
-    --focus \
+    --no-focus \
     --json
 )"
 ```
 
-### 4. Focus worktree 
+### 4. Create new OpenCode session and focus worktree 
+- Retrieve workspace and pane IDs from Herdr's JSON.
 ```bash
-workspace_id="$(
-  printf '%s' "$create_json" |
-    jq -er '.result.workspace.workspace_id'
-)"
-
-pane_id="$(
-  printf '%s' "$create_json" |
-    jq -er '.result.root_pane.pane_id'
-)"
+workspace_id="$(printf '%s' "$create_json" | jq -er '.result.workspace.workspace_id')"
+pane_id="$(printf '%s' "$create_json" | jq -er '.result.root_pane.pane_id')"
 ```
-Retrieve workspace and pane IDs from Herdr's JSON.
-
-### 5. Start a forked OpenCode Session
-- Launch OpenCode directly in the worktree pane:
+- Start OpenCode session
 ```bash
-herdr pane run "$pane_id" "opencode --session $session_id --fork --agent plan"
+herdr pane run "$pane_id" opencode --agent plan
 ```
-
-### 6. Hand off the task to the new agent
+- Focus workspace
 ```bash
-herdr agent prompt "$pane_id Continue this task in the new worktree. Work only in this checkout. Task: $task"
+herdr workspace focus "$workspace_id"
 ```
 The original OpenCode session remains in the parent workspace as the coordinator. The user is now focused on the forked session in the worktree.
