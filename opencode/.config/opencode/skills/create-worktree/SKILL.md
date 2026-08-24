@@ -12,8 +12,8 @@ description: Create and switch to a git worktree through Herdr. Use when the use
 - Never transfer, copy, commit, or discard uncommitted changes before creating and switching to a new worktree.
 
 ## Create worktree
-- Require the name of the reference branch and the name of the new branch. Ask user, if either is omitted.
-- If the base is a remote-tracking ref such as origin/develop, fetch that remote before creating the worktree.
+- Require the name of the base branch and the name of the new branch. Ask user, if either is omitted.
+- If the branch already exists, no base branch is necessary
 
 ### 1. Check existing state 
 - Inspect both Herdr worktrees and local branches:
@@ -30,6 +30,7 @@ git -C "$root" status --short
 - Uncommitted changes remain in the current worktree. If the requested task appears to depend on them, ask the user to commit, stash, or choose another base before proceeding.
 
 ### 2. Create and focus worktree 
+- If the branch does not yet exist:
 ```bash
 create_json="$(
   herdr worktree create \
@@ -40,7 +41,9 @@ create_json="$(
     --focus \
     --json
 )"
-
+```
+- If the branch already exists:
+```bash
 workspace_id="$(
   printf '%s' "$create_json" |
     jq -er '.result.workspace.workspace_id'
