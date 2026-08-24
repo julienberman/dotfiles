@@ -34,6 +34,11 @@ create_json="$(
 ```
 
 ### Switch to new worktree
+- If the worktree is not yet open:
+```bash
+herdr worktree open --cwd "$root" --branch "$branch" --label "$branch" --no-focus --json
+```
+
 - Retrieve workspace and pane IDs from Herdr's JSON:
 ```bash
 workspace_id="$(
