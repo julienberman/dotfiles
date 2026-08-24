@@ -9,6 +9,11 @@
             "*.env.*": "deny",
             "*.env.example": "allow"
         },
+        "external_directory": {
+            "*": "ask",
+            "~/Documents/**": "allow",
+            "~/.local/share/herdr/**": "allow"
+        },
         "webfetch": "allow",
         "websearch": "allow"
     },
