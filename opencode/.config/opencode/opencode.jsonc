@@ -12,7 +12,7 @@
         "external_directory": {
             "*": "ask",
             "~/Documents/**": "allow",
-            "~/.local/share/herdr/**": "allow"
+            "~/.herdr/worktrees/**": "allow"
         },
         "webfetch": "allow",
         "websearch": "allow"
