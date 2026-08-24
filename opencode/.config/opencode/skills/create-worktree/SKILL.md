@@ -12,25 +12,59 @@ description: Create and switch to a git worktree through Herdr. Use when the use
 - Never transfer, copy, commit, or discard uncommitted changes before creating and switching to a new worktree.
 
 ## Create worktree
-- Require the name of the base branch and the name of the new branch. Ask user, if either is omitted.
 - If the branch already exists, no base branch is necessary
 
-### 1. Check existing state 
-- Inspect both Herdr worktrees and local branches:
+### 1. Check whether branch exists
+- Search existing branches
 ```bash
-worktrees="$(herdr worktree list --cwd "$root" --json)"
 git -C "$root" show-ref --verify --quiet "refs/heads/$branch"
 ```
-- If the branch already has a worktree, do not create another checkout. Offer to focus or open the existing worktree.
-- If the local branch exists without a worktree, explain that Herdr will check out the existing branch and ignore the requested base. Ask whether to resume that branch.
+- If the requested branch does not exist, prompt user for the base branch.
+- If the requested branch does exist, do not prompt user for the base branch.
+
+### 2. Check whether existing worktree is clean
 - Inspect uncommitted changes:
 ```bash
 git -C "$root" status --short
 ```
 - Uncommitted changes remain in the current worktree. If the requested task appears to depend on them, ask the user to commit, stash, or choose another base before proceeding.
 
-### 2. Create and focus worktree 
-- If the branch does not yet exist:
+### 3. Check whether worktree exists
+- Inspect herdr worktrees
+```bash
+worktrees="$(herdr worktree list --cwd "$root" --json)"
+```
+#### If branch already has a worktree
+- Do not create another checkout.
+- If the worktree is closed, open it through Herdr:
+```bash
+herdr worktree open \
+  --cwd "$root" \
+  --branch "$branch" \
+  --focus \
+  --json
+```
+- If the worktree is open in a Herdr workspace, focus that workspace:
+```bash
+herdr workspace focus "$workspace_id"
+```
+- Do not create a duplicate checkout or session unless the user explicitly asks for one.
+
+#### If branch exists, but has no worktree
+- Create the worktree with no base:
+```bash
+create_json="$(
+  herdr worktree create \
+    --cwd "$root" \
+    --branch "$branch" \
+    --label "$branch" \
+    --focus \
+    --json
+)"
+```
+
+#### If neither branch nor worktree exists
+- Create the worktree and branch with the base branch specified:
 ```bash
 create_json="$(
   herdr worktree create \
@@ -42,7 +76,8 @@ create_json="$(
     --json
 )"
 ```
-- If the branch already exists:
+
+### 4. Focus worktree 
 ```bash
 workspace_id="$(
   printf '%s' "$create_json" |
@@ -56,29 +91,14 @@ pane_id="$(
 ```
 Retrieve workspace and pane IDs from Herdr's JSON.
 
-### 3. Start a forked OpenCode Session
+### 5. Start a forked OpenCode Session
 - Launch OpenCode directly in the worktree pane:
 ```bash
 herdr pane run "$pane_id" "opencode --session $session_id --fork --agent plan"
 ```
 
-### 4. Hand off the task to the new agent
+### 6. Hand off the task to the new agent
 ```bash
 herdr agent prompt "$pane_id Continue this task in the new worktree. Work only in this checkout. Task: $task"
 ```
 The original OpenCode session remains in the parent workspace as the coordinator. The user is now focused on the forked session in the worktree.
-
-## Open Existing Worktree
-- If the branch already has a closed worktree checkout, open it through Herdr:
-```bash
-herdr worktree open \
-  --cwd "$root" \
-  --branch "$branch" \
-  --focus \
-  --json
-```
-- If the branch already has an open Herdr workspace, focus that workspace:
-```bash
-herdr workspace focus "$workspace_id"
-```
-- Do not create a duplicate checkout or session unless the user explicitly asks for one.
