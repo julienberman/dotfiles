@@ -10,6 +10,10 @@ I am also obsessed with organization. Every piece of text and piece of code need
 - Questions are read only.A question is a request for an answer, not for changes. If a question begins with "why does", "how hard would it be", "what is the purpose", "can X do Y", "should we", or otherwise asks rather than instructs: answer it, and do not edit any files
 - Even if the answer is obvious and the change is trivial, still answer first and offer the change. Ask before making it.
 
+# Git and GitHub
+- Conduct all `git merge` and `git rebase` operations against local base branches, not upstream base branches. If the local base branches are out of date, prompt the user to fetch the latest changes before updating.
+- Conduct all git operations on stacked PRs using the `gh stack` extension in the Github CLI. Do not handle with typical git commands.
+
 # Coding preferences
 
 ## General
