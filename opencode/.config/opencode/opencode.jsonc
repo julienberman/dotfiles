@@ -38,7 +38,7 @@
         },
         // Handles Railway deployments
         "railway": {
-            "type": "local",
+            "type": "remote",
             "command": ["railway", "mcp"],
             "enabled": true
         },
