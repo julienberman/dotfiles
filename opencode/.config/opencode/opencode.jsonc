@@ -39,32 +39,37 @@
         // Handles Railway deployments
         "railway": {
             "type": "remote",
-            "command": ["railway", "mcp"],
+            "url": "https://mcp.railway.com",
             "enabled": true
         },
         // Handles session logs
         "datadog": {
             "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_06B4geqJvwSnXvAXeaoZEF/mcp"
+            "url": "https://app.mintmcp.com/s/g_06B4geqJvwSnXvAXeaoZEF/mcp",
+            "enabled": true
         },
         // Handles snowflake data
         "snowflake": {
             "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_5p7ZEYG4iuMhd4nhCrgLnB/mcp"
+            "url": "https://app.mintmcp.com/s/g_5p7ZEYG4iuMhd4nhCrgLnB/mcp",
+            "enabled": true
         },
         // Handles dashboards
         "metabase": {
             "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_6NcVquHm8oyTDaJlrTuUKI/mcp"
+            "url": "https://app.mintmcp.com/s/g_6NcVquHm8oyTDaJlrTuUKI/mcp",
+            "enabled": true
         },
         // Feature flags
         "launch_darkly": {
             "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_1V0uw7wkif6sdGY0qlCwiU/mcp"
+            "url": "https://app.mintmcp.com/s/g_1V0uw7wkif6sdGY0qlCwiU/mcp",
+            "enabled": true
         },
         "semaphore": {
             "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_6H2LhqCE3rSMnYqwhBK1by/mcp"
+            "url": "https://app.mintmcp.com/s/g_6H2LhqCE3rSMnYqwhBK1by/mcp",
+            "enabled": true
         }
     }
 }
