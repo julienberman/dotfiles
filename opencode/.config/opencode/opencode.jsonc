@@ -12,7 +12,8 @@
         "external_directory": {
             "*": "ask",
             "~/Documents/**": "allow",
-            "~/.herdr/worktrees/**": "allow"
+            "~/.herdr/worktrees/**": "allow",
+            "~/.config/opencode/skills/**": "allow"
         },
         "webfetch": "allow",
         "websearch": "allow"
