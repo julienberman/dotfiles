@@ -4,10 +4,7 @@
     "default_agent": "plan",
     "permission": {
         "read": {
-            "*": "allow",
-            "*.env": "deny",
-            "*.env.*": "deny",
-            "*.env.example": "allow"
+            "*": "allow"
         },
         "external_directory": {
             "*": "ask",
