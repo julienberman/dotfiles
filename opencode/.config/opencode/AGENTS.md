@@ -12,7 +12,7 @@ I am also obsessed with organization. Every piece of text and piece of code need
 
 # Git and GitHub
 - Conduct all `git merge` and `git rebase` operations against local base branches, not upstream base branches. If the local base branches are out of date, prompt the user to fetch the latest changes before updating.
-- Conduct all git operations on stacked PRs using the `gh stack` extension in the Github CLI. Do not handle with typical git commands.
+- If working on a branch associated with a stacked PR, conduct git operations using the `gh stack` extension in the Github CLI. Do not handle with typical git commands, becuase it will complicate the git history.
 
 # Coding preferences
 

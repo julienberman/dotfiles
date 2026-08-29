@@ -23,4 +23,6 @@ BAD:
 GOOD:
 > My "new worktree" default was ignored when starting new threads on existing worktrees. Super unituitive. Now your preferences always apply. 
 
+Assume, unless otherwise specified by the user, that the PR is **not** stacked. But, if it **is** a stacked PR, make sure to use the `gh stack` commands, rather than the typical git commands.
+
 Open a real PR, not a draft, so that review bots run. If the user also asked to babysit it, continue with the `babysit-pr` skill.
