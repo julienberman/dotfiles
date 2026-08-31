@@ -89,7 +89,7 @@ agent_panel_sort = "spaces"
 accent = "#f5c2e7"
 
 [ui.toast]
-delivery = "system"
+delivery = "terminal"
 delay_seconds = 1
 
 [ui.toast.herdr]
