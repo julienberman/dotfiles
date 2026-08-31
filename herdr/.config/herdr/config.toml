@@ -89,15 +89,15 @@ agent_panel_sort = "spaces"
 accent = "#f5c2e7"
 
 [ui.toast]
-delivery = "terminal"
+delivery = "system"
 delay_seconds = 1
 
 [ui.toast.herdr]
-position = "bottom-right"
+position = "top-right"
 
 [ui.toast.clipboard]
 enabled = true
-position = "bottom-center"
+position = "top-right"
 
 # Play sounds when agents change state in background workspaces
 [ui.sound]
