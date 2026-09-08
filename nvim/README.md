@@ -18,7 +18,14 @@ brew install tree-sitter-cli    # Required for treesitter language parsers
 #### ArchLinux
 
 ```bash
-# TODO
+pacman -S neovim
+pacman -S git
+pacman -S ripgrep               # Fast grep (used by picker)
+pacman -S nodejs                # Required for some LSPs and tools
+pacman -S npm                   # Required for markdown preview
+pacman -S tree-sitter-cli       # Required for treesitter language parsers
+pacman -S base-devel            
+pacman -S wl-clipboard          # Required for neovim to paste from system clipboard
 ```
 
 ### Fonts (required)

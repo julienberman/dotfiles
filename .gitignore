@@ -1,4 +1,6 @@
 *.DS_Store
 tmux/.config/tmux/plugins/
 *.sqlite
-
+herdr/.config/herdr/.plugins.lock
+herdr/.config/herdr/*.log
+herdr/.config/herdr/session.json
