@@ -13,6 +13,13 @@ I am also obsessed with organization. Every piece of text and piece of code need
 # Git and GitHub
 - Conduct all `git merge` and `git rebase` operations against local base branches, not upstream base branches. If the local base branches are out of date, prompt the user to fetch the latest changes before updating.
 - If working on a branch associated with a stacked PR, conduct git operations using the `gh stack` extension in the Github CLI. Do not handle with typical git commands, becuase it will complicate the git history.
+- All posts to GitHub --- whether it be comments, PR descriptions, issue descriptions, or any other generated text --- must include the following signature:
+```md
+<content>
+---
+Prepared on behalf of Julien Berman by <model> using <harness>.
+```
+- The model should be lowercase. Versions should be hyphenated. Do **NOT** include the name of the provider. GOOD: `gpt-5.6-sol`. BAD: `GPT 5.6 Sol`, `openai/gpt-5.6-sol`.
 
 # Coding preferences
 
