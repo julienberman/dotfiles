@@ -4,3 +4,4 @@ tmux/.config/tmux/plugins/
 herdr/.config/herdr/.plugins.lock
 herdr/.config/herdr/*.log
 herdr/.config/herdr/session.json
+opencode/.config/opencode/service.json
