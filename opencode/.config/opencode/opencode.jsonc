@@ -2,24 +2,21 @@
     "$schema": "https://opencode.ai/config.json",
     "autoupdate": true,
     "default_agent": "plan",
-    "permission": {
-        "read": {
-            "*": "allow"
-        },
-        "external_directory": {
-            "*": "ask",
-            "~/Documents/**": "allow",
-            "~/.herdr/worktrees/**": "allow",
-            "~/.config/opencode/skills/**": "allow"
-        },
-        "webfetch": "allow",
-        "websearch": "allow"
+    "agents": {
+        "plan": { "color": "#c6a0f6" },
+        "build": { "color": "#f5bde6" },
+        "general": { "color": "#a6da95" },
+        "explore": { "color": "#eed49f" }
     },
-    "plugin": [
-        ["@plannotator/opencode@latest", {
-            "workflow": "manual",
-            "planningAgents": ["plan", "sisyphus"]
-        }]
+    "permissions": [
+        { "action": "read", "resource": "*", "effect": "allow" },
+        { "action": "external_directory", "resource": "*", "effect": "ask" },
+        { "action": "external_directory", "resource": "~/Documents/*", "effect": "allow" },
+        { "action": "external_directory", "resource": "~/.herdr/worktrees/*", "effect": "allow" },
+        { "action": "external_directory", "resource": "~/.config/opencode/skills/*", "effect": "allow" },
+        { "action": "external_directory", "resource": "/private/var/folders/*/T/opencode/*", "effect": "allow" },
+        { "action": "webfetch", "resource": "*", "effect": "allow" },
+        { "action": "websearch", "resource": "*", "effect": "allow" }
     ],
     "mcp": {
         // Fetches up-to-date docs for popular libraries
@@ -55,7 +52,7 @@
         // Handles dashboards
         "metabase": {
             "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_6NcVquHm8oyTDaJlrTuUKI/mcp",
+            "url": "https://app.mintmcp.com/s/g_1G6A8qPPEnedfRDLJZ8JR3/mcp",
             "enabled": true
         },
         // Feature flags

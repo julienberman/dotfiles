@@ -7,19 +7,24 @@ I am also obsessed with organization. Every piece of text and piece of code need
 # Communication Preferences
 - Be concise. Avoid unnecessary preamble or summary.
 - Prioritize concision, clarity, and readbility over cleverness
-- Questions are read only.A question is a request for an answer, not for changes. If a question begins with "why does", "how hard would it be", "what is the purpose", "can X do Y", "should we", or otherwise asks rather than instructs: answer it, and do not edit any files
+- Questions are read only. A question is a request for an answer, not for changes. If a question begins with "why does", "how hard would it be", "what is the purpose", "can X do Y", "should we", or otherwise asks rather than instructs: answer it, and do not edit any files
 - Even if the answer is obvious and the change is trivial, still answer first and offer the change. Ask before making it.
 
 # Git and GitHub
-- Conduct all `git merge` and `git rebase` operations against local base branches, not upstream base branches. If the local base branches are out of date, prompt the user to fetch the latest changes before updating.
-- If working on a branch associated with a stacked PR, conduct git operations using the `gh stack` extension in the Github CLI. Do not handle with typical git commands, becuase it will complicate the git history.
+
+## General
+- Conduct all `git merge` and `git rebase` operations against local base branches, not upstream base branches.
 - All posts to GitHub --- whether it be comments, PR descriptions, issue descriptions, or any other generated text --- must include the following signature:
 ```md
 <content>
+
 ---
 Prepared on behalf of Julien Berman by <model> using <harness>.
 ```
 - The model should be lowercase. Versions should be hyphenated. Do **NOT** include the name of the provider. GOOD: `gpt-5.6-sol`. BAD: `GPT 5.6 Sol`, `openai/gpt-5.6-sol`.
+
+## Stacked PRs
+- All git operations with stacked PRs should use the `gh stack` extension in the Github CLI, **not vanilla git commands**. If the extension is not available or installed, raise an error to the user.
 
 # Coding preferences
 
@@ -28,18 +33,11 @@ Prepared on behalf of Julien Berman by <model> using <harness>.
 - Try to reduce code and bloat, where possible
 - Be careful with destructive actions that are not explicitly requested by the user.
 - If the development environment uses docker containers, make sure to execute all commands and tests inside the appropriate container. Avoid running code on the host machine.
-- Avoid excessive comments. Comments should only be used above class and method definitions to clarify functionality, and only if necessary. They should be very concise.
-- Keep comments and documentation up-to-date.
+- ***Do not introduce comments unless absolutely necessary***. This is critical. Comments should only be used above class and method definitions to clarify functionality, and they should be extremely sparse. They should be very concise.
+- Keep documentation up-to-date.
 - Prioritize concise, descriptive variable, method, and class names
 - Use spaces, not tabs
 - Tests are good, but endless "smoke tests" and "regression tests" are useless and bloat the codebase. Tests should be focused, not slop.
-
-## Pull Requests
-- Make sure titles follow conventions from the repo. Titles should be simple and easy to understand, i.e. `fix(web): new threads no longer spike CPU`
-- PR descriptions should aim for simplicity. Open with a minimal, clear description of the problem. Follow up with how you solved it.
-- Add a blurb at the end about what model is making the changes.
-- Rebase onto the latest version of `main` before opening. Stale branches conflict and waste a review round.
-- When asked to monitor or babysit a PR: poll checks and comments newer than the last push; verify each bot finding against the source before acting on it; fix real ones and dismiss false positives with a written reason; fix CI failures. If nothing is new, stay quiet. Do not poste filler comments.
 
 ## Typescript
 - Never use `any`. 
