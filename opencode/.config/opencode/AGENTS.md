@@ -53,7 +53,7 @@ Prepared on behalf of Julien Berman by <model> using <harness>.
     - .assign(...) for mutating variables
     - .groupby(...).agg({...}) for group-level aggregation
     - .groupby(...).transform() for in-place group-level operations
-    - .query(...) for simple filtration, .loc[...] for complex filtration
+    - .loc[lambda x: ...] for filtration
     - .merge( ..., how = ..., on = [...]) for merging
     - .drop(columns=[...]) for removing columns
     - .select(columns=[...]) for selecting columns (pyjanitor)
