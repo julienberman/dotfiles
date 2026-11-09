@@ -6,6 +6,7 @@
   "keybinds": {
     "leader": "ctrl+o",
     "model.cycle_favorite": "<leader>f",
+    "variant.list": "<leader>r",
     "input.submit": "return",
     "input.newline": "shift+return,ctrl+j",
     "agent.cycle": "tab"
