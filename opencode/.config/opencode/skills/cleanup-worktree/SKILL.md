@@ -9,6 +9,7 @@ description: Clean up and close a git worktree through Herdr. Use when the user 
 - Operate only when `HERDR_ENV=1`. If `HERDR_ENV` is not 1, stop and explain that worktree orchestration must run inside Herdr.
 - Treat the worktree, local branch, and remote branch as separate resources.
 - Never transfer, copy, commit, or discard uncommitted changes before cleaning up or removing a new worktree.
+- If there are any simlinks, feel free to discard them, so long as the underling data and files remain intact
 
 ## Clean up worktree
 
