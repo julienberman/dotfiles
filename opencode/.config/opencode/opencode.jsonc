@@ -61,7 +61,10 @@
             },
             "playwright": {
                 "type": "local",
-                "command": ["npx", "-y", "@playwright/mcp@latest", "--extension"]
+                "command": ["npx", "-y", "@playwright/mcp@latest", "--extension"],
+                "environment": {
+                    "PLAYWRIGHT_MCP_EXECUTABLE_PATH": "/Applications/Helium.app/Contents/MacOS/Helium"
+                }
             }
         }
     }
