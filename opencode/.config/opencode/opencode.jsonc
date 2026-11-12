@@ -19,52 +19,50 @@
         { "action": "websearch", "resource": "*", "effect": "allow" }
     ],
     "mcp": {
-        // Fetches up-to-date docs for popular libraries
-        "context7": {
-            "type": "remote",
-            "url": "https://mcp.context7.com/mcp",
-            "enabled": true
-        },
-        // Gets components
-        "shadcn": {
-            "type": "local",
-            "command": ["pnpm", "dlx", "shadcn@latest", "mcp"],
-            "enabled": true
-        },
-        // Handles Railway deployments
-        "railway": {
-            "type": "remote",
-            "url": "https://mcp.railway.com",
-            "enabled": true
-        },
-        // Handles session logs
-        "datadog": {
-            "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_06B4geqJvwSnXvAXeaoZEF/mcp",
-            "enabled": true
-        },
-        // Handles snowflake data
-        "snowflake": {
-            "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_5p7ZEYG4iuMhd4nhCrgLnB/mcp",
-            "enabled": true
-        },
-        // Handles dashboards
-        "metabase": {
-            "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_1G6A8qPPEnedfRDLJZ8JR3/mcp",
-            "enabled": true
-        },
-        // Feature flags
-        "launch_darkly": {
-            "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_1V0uw7wkif6sdGY0qlCwiU/mcp",
-            "enabled": true
-        },
-        "semaphore": {
-            "type": "remote",
-            "url": "https://app.mintmcp.com/s/g_6H2LhqCE3rSMnYqwhBK1by/mcp",
-            "enabled": true
+        "servers": {
+            // Fetches up-to-date docs for popular libraries
+            "context7": {
+                "type": "remote",
+                "url": "https://mcp.context7.com/mcp"
+            },
+            // Gets components
+            "shadcn": {
+                "type": "local",
+                "command": ["pnpm", "dlx", "shadcn@latest", "mcp"]
+            },
+            // Handles Railway deployments
+            "railway": {
+                "type": "remote",
+                "url": "https://mcp.railway.com"
+            },
+            // Handles session logs
+            "datadog": {
+                "type": "remote",
+                "url": "https://app.mintmcp.com/s/g_06B4geqJvwSnXvAXeaoZEF/mcp"
+            },
+            // Handles snowflake data
+            "snowflake": {
+                "type": "remote",
+                "url": "https://app.mintmcp.com/s/g_5p7ZEYG4iuMhd4nhCrgLnB/mcp"
+            },
+            // Handles dashboards
+            "metabase": {
+                "type": "remote",
+                "url": "https://app.mintmcp.com/s/g_1G6A8qPPEnedfRDLJZ8JR3/mcp"
+            },
+            // Feature flags
+            "launch_darkly": {
+                "type": "remote",
+                "url": "https://app.mintmcp.com/s/g_1V0uw7wkif6sdGY0qlCwiU/mcp"
+            },
+            "semaphore": {
+                "type": "remote",
+                "url": "https://app.mintmcp.com/s/g_6H2LhqCE3rSMnYqwhBK1by/mcp"
+            },
+            "playwright": {
+                "type": "local",
+                "command": ["npx", "-y", "@playwright/mcp@latest"]
+            }
         }
     }
 }
